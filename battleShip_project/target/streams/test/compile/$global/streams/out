@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0mD:\romain\Documents\Github\BattleShip_IG5\battleShip_project\src\test\scala\ShipSpec.scala:30:15: value isSink is not a member of Option[battleShip.Ship][0m
+[0m[[0m[31merror[0m] [0m[0m    assert(s6.isSink)[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

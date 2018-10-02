@@ -4,13 +4,17 @@ import battleShip._
 
 import scala.annotation.tailrec
 
-class Ship(private val name : String, private var listCoordinate : List[Coordinate]) {
+case class Ship(name : String, size : Int, listCoordinate : List[Coordinate]) {
 
-	def getListCoordinate() : List[Coordinate] = listCoordinate
+	def isSink() : Boolean = {
+		listCoordinate.isEmpty
+	}
 
 	@tailrec
 	private def l1containsl2(l1 : List[Coordinate], l2 : List[Coordinate]) : Boolean = {
 		if (l2.isEmpty) {
+			false
+		} else if (l1.isEmpty) {
 			false
 		} else if (l1.contains(l2.head)) {
 			true
@@ -23,16 +27,20 @@ class Ship(private val name : String, private var listCoordinate : List[Coordina
 		l1containsl2(listCoordinate, ship2.listCoordinate)
 	}
 
-	def removeCoordinate(c1 : Coordinate) = {
-		listCoordinate = listCoordinate.filter(_ != c1)
-	}
-
-	def isSink() : Boolean = {
-		listCoordinate.isEmpty
+	def removeCoordinate(c1 : Coordinate) : Option[Ship] = {
+		val res = listCoordinate.filter(coordinate => coordinate.x == c1.x && coordinate.y == c1.y)
+		if (res.size == 1) {
+			val newListCoordinate = listCoordinate.filter(coordinate => !coordinate.equals(c1))
+			val newShip = copy(listCoordinate = newListCoordinate)
+			return Some(newShip)
+		} else {
+			return None
+		} 
 	}
 
 }
 
+/*
 object Ship {
 
 	def isValid(firstCoordinate : Coordinate, size : Int, direction : String) : List[Coordinate] = {
@@ -92,3 +100,4 @@ object Ship {
 		}
 	} 
 }
+*/
