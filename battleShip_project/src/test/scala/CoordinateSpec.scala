@@ -4,11 +4,11 @@ import battleShip._
 
 
 class CoordinateSpec extends FunSuite with DiagrammedAssertions {
-  val c1 = Coordinate("A",3)
-  val c2 = Coordinate("E",11)
-  val c3 = Coordinate("K",4)
-  val c4 = Coordinate("Z",12)
-  val c5 = Coordinate("J",10)
+  val c1 = Coordinate(1,3)
+  val c2 = Coordinate(5,11)
+  val c3 = Coordinate(11,4)
+  val c4 = Coordinate(-3,12)
+  val c5 = Coordinate(10,10)
 
   test("Test isValid") {
     assert(c1.isValid)

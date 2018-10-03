@@ -1,4 +1,11 @@
-[0m[[0m[31merror[0m] [0m[0mD:\romain\Documents\Github\BattleShip_IG5\battleShip_project\src\main\scala\battleShip\Ship.scala:33:83: not found: value position[0m
-[0m[[0m[31merror[0m] [0m[0m			val newListCoordinate = listCoordinate.filter(coordinate => !coordinate.equals(position))[0m
-[0m[[0m[31merror[0m] [0m[0m			                                                                               ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\romain\Documents\Github\BattleShip_IG5\battleShip_project\src\main\scala\battleShip\Battleship.scala:3:19: imported `Coordinate' is permanently hidden by definition of object Coordinate in package battleShip[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport battleShip.Coordinate[0m
+[0m[[0m[33mwarn[0m] [0m[0m                  ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\romain\Documents\Github\BattleShip_IG5\battleShip_project\src\main\scala\battleShip\Battleship.scala:4:19: imported `Ship' is permanently hidden by definition of object Ship in package battleShip[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport battleShip.Ship[0m
+[0m[[0m[33mwarn[0m] [0m[0m                  ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\romain\Documents\Github\BattleShip_IG5\battleShip_project\src\main\scala\battleShip\Battleship.scala:5:19: imported `Player' is permanently hidden by definition of object Player in package battleShip[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport battleShip.Player[0m
+[0m[[0m[33mwarn[0m] [0m[0m                  ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mthere were two deprecation warnings (since 2.11.0); re-run with -deprecation for details[0m
+[0m[[0m[33mwarn[0m] [0m[0mfour warnings found[0m

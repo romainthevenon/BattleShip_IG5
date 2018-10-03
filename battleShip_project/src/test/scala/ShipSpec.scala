@@ -4,10 +4,10 @@ import battleShip._
 
 
 class ShipSpec extends FunSuite with DiagrammedAssertions {
-  val c1 = Coordinate("A",3)
-  val c2 = Coordinate("A",4)
-  val c3 = Coordinate("A",5)
-  val c4 = Coordinate("A",6)
+  val c1 = Coordinate(1,3)
+  val c2 = Coordinate(1,4)
+  val c3 = Coordinate(1,5)
+  val c4 = Coordinate(1,6)
 
   val s1 = Ship("test1",2,List(c1,c2))
   val s2 = Ship("test2",2,List(c2,c3))
