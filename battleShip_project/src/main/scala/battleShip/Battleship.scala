@@ -20,6 +20,9 @@ object BattleShip extends App {
 
   chooseMode
 
+  /**
+      * This function allows to choose the mode  
+      */
   def chooseMode() : Unit = {
     println("Choose the game mode (1: Human vs Human / 2: Human vs IA) :")
     val gameMode = Try(readInt)
@@ -53,6 +56,11 @@ object BattleShip extends App {
     }
   }
 
+  /**
+      * This function return the new player, the same player but with the list of ships (all ships are created)  
+      * @param p The player who should be initialized
+      * @return Player The new player with all ships initialized
+      */
   def initialisePlayer(p : Player) : Player = {
     //val listShip = List(Ship("destroyer",2,Nil),Ship("submarine",3,Nil),Ship("cruiser",3,Nil),Ship("battleShip",4,Nil),Ship("carrier",5,Nil))
     val listShip = List(Ship("destroyer",2,Nil),Ship("submarine",3,Nil))
@@ -63,6 +71,12 @@ object BattleShip extends App {
     return createFleet(p,listShip)
   }
 
+  /**
+      * This function return the new player, the same player but with the list of ships (all ships are created) 
+      * @param p The player who should be initialized
+      * @param listShip The list of ships whose must be created
+      * @return Player The new player with all ships initialized
+      */
   @tailrec
   def createFleet(p: Player, listShip : List[Ship]) : Player = {
     if (listShip.isEmpty) {
@@ -93,6 +107,41 @@ object BattleShip extends App {
     }
   }
 
+    /**
+      * This function allows to start the game and start again while the players don't stop
+      * @param p The first player (it is the first player to play)
+      * @param p2 The second player
+      */
+  def game(p1: Player, p2: Player) : Unit = {
+    val newP1 = initialisePlayer(p1)
+    val newP2 = initialisePlayer(p2)
+    val pWinner = round(newP1,newP2)
+    println("Press q to quit the game or any key to play again !")
+    val res = readLine
+    res match {
+      case "q" => {
+        println("Good bye !!!") 
+      }
+      case _ => {
+        if (newP1.name == pWinner.name) {
+          val p1Reset = pWinner.reset()
+          val p2Reset = newP2.reset()
+          game(p2Reset,p1Reset)
+        } else {
+          val p1Reset = newP1.reset()
+          val p2Reset = pWinner.reset()
+          game(p2Reset,p1Reset)
+        }
+      }
+    }
+  }
+
+  /**
+      * This function return the player who win the game, while no player is dead, we call back the function
+      * @param p The first player (it is the player who play the round)
+      * @param p2 The second player
+      * @return Player The player who win the game
+      */
   def round(p1 : Player, p2 : Player) : Player = {
     print("\033[H\033[2J")
     if (!p1.isDead) {
@@ -151,30 +200,6 @@ object BattleShip extends App {
         println(newP2.name+" win "+newP2.score+" games !")
         println(p1.name+" win "+p1.score+" games !")
         return newP2
-    }
-  }
-
-  def game(p1: Player, p2: Player) : Unit = {
-    val newP1 = initialisePlayer(p1)
-    val newP2 = initialisePlayer(p2)
-    val pWinner = round(newP1,newP2)
-    println("Press q to quit the game or any key to play again !")
-    val res = readLine
-    res match {
-      case "q" => {
-        println("Good bye !!!") 
-      }
-      case _ => {
-        if (newP1.name == pWinner.name) {
-          val p1Reset = pWinner.reset()
-          val p2Reset = newP2.reset()
-          game(p2Reset,p1Reset)
-        } else {
-          val p1Reset = newP1.reset()
-          val p2Reset = pWinner.reset()
-          game(p2Reset,p1Reset)
-        }
-      }
     }
   }
 
