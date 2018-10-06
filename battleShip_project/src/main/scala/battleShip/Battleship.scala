@@ -73,16 +73,16 @@ object BattleShip extends App {
     } else {
       println("Create "+listShip.head.name+" (Player : "+p.name+")")
       println()
-      val c = Helpers.enterCoordinate
-      val d = Helpers.enterDirection
-      val s1 = p.createShip(listShip.head.name,listShip.head.size,c,d)
-      s1 match {
+      val coordinate = Helpers.enterCoordinate
+      val direction = Helpers.enterDirection
+      val ship = p.createShip(listShip.head.name,listShip.head.size,coordinate,direction)
+      ship match {
         case Some(s) => {
-          val p1 = p.addShip(s1.get)
+          val newP = p.addShip(ship.get)
           println()
           println(listShip.head.name+" create !")
           println("----------")
-          createFleet(p1,listShip.tail) 
+          createFleet(newP,listShip.tail) 
         }
         case None => {
           println("Bad Ship ! No create !")
@@ -103,11 +103,11 @@ object BattleShip extends App {
         println()
         println("Grid with your shoots (O --> Good / X --> Bad) :")
         Grid.printGrilleMyShoots(1,1,p1)
-        val c1 = Helpers.enterCoordinate
-        val res = p2.belongToOneShip(c1)
+        val coordinate = Helpers.enterCoordinate
+        val res = p2.isContainedInOneShip(coordinate)
         res match {
           case None => {
-            val newP1 = p1.addShot(c1, false)
+            val newP1 = p1.addShot(coordinate, false)
             println()
             println("It's a miss !!!")
             println("Press any key to continue")
@@ -115,21 +115,21 @@ object BattleShip extends App {
             round(p2, newP1)
           }
           case Some(s) => {
-            val newP1 = p1.addShot(c1,true)
-            val b = res.get
-            val newB = b.removeCoordinate(c1)
-            if (newB.isSink) {
-              val newP2 = p2.removeShip(b)
+            val newP1 = p1.addShot(coordinate,true)
+            val ship = res.get
+            val newShip = ship.removeCoordinate(coordinate)
+            if (newShip.isSink) {
+              val newP2 = p2.removeShip(ship)
               println()
-              println(newB.name+" sinked !!!")
+              println(newShip.name+" sinked !!!")
               println("Press any key to continue")
               readLine
               round(newP2, newP1)
             } else {
-              val indexP2 = p2.removeShip(b)
-              val newP2 = indexP2.addShip(newB)
+              val indexP2 = p2.removeShip(ship)
+              val newP2 = indexP2.addShip(newShip)
               println()
-              println(newB.name+" touched !!!")
+              println(newShip.name+" touched !!!")
               println("Press any key to continue")
               readLine
               round(newP2, newP1)

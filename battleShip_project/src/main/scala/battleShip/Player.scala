@@ -19,10 +19,9 @@ case class Player(_name : String, _listShip : List[Ship], _listShotGood : List[C
 			size match {
 				case 0 => return l1
 				case _ => {
-					val l2 = c1 :: l1
 					direction match {
-						case "V" => return getAllCoordinateShip(l2, Coordinate(c1.x, (c1.y + 1)), size-1, direction)
-						case "H" => return getAllCoordinateShip(l2, Coordinate((c1.x + 1), c1.y), size-1, direction)
+						case "V" => return getAllCoordinateShip(c1 :: l1, Coordinate(c1.x, (c1.y + 1)), size-1, direction)
+						case "H" => return getAllCoordinateShip(c1 :: l1, Coordinate((c1.x + 1), c1.y), size-1, direction)
 					}
 				}
 			}
@@ -32,25 +31,25 @@ case class Player(_name : String, _listShip : List[Ship], _listShotGood : List[C
 
 	def createShip(name : String, size: Int, firstCoordinate : Coordinate, direction : String) : Option[Ship] = {
 		if (!firstCoordinate.isValid) {
-			None
+			return None
 		} else {
 			direction match {
 				case "V" if (Coordinate(firstCoordinate.x, (firstCoordinate.y + (size-1))).isValid) => {
-					val s = Ship(name,size,getAllCoordinateShip(Nil,firstCoordinate,size,direction))
-					val ListSuperposed = listShip.map(ship => ship.isSuperposed(s))
+					val ship = Ship(name,size,getAllCoordinateShip(Nil,firstCoordinate,size,direction))
+					val ListSuperposed = listShip.map(s => s.isSuperposed(ship))
 					if (ListSuperposed.filter(bool => bool == true).size >= 1) {
 						return None
 					} else {
-						return Some(s)
+						return Some(ship)
 					}
 				}
 				case "H" if (Coordinate((firstCoordinate.x + (size-1)), firstCoordinate.y).isValid) => {
-					val s = Ship(name,size,getAllCoordinateShip(Nil,firstCoordinate,size,direction))
-					val ListSuperposed = listShip.map(ship => ship.isSuperposed(s))
-					if (ListSuperposed.filter(bool => bool == true).size >= 1) {
+					val ship = Ship(name,size,getAllCoordinateShip(Nil,firstCoordinate,size,direction))
+					val listSuperposed = listShip.map(s => s.isSuperposed(ship))
+					if (listSuperposed.filter(bool => bool == true).size >= 1) {
 						return None
 					} else {
-						return Some(s)
+						return Some(ship)
 					}
 				}
 				case _ => return None
@@ -58,48 +57,40 @@ case class Player(_name : String, _listShip : List[Ship], _listShotGood : List[C
 		}
 	}
 
-	def belongToOneShip(c1 : Coordinate) : Option[Ship] = {
-		val res = listShip.map(s => s.belongTo(c1))
-		if (res.filter(bool => bool == true).size == 1) {
-			val index = res.indexOf(true)
-			return Some(listShip(index))
+	def isContainedInOneShip(c1 : Coordinate) : Option[Ship] = {
+		val listContained = listShip.map(s => s.isContained(c1))
+		if (listContained.filter(bool => bool == true).size == 1) {
+			return Some(listShip(listContained.indexOf(true)))
 		} else {
 			None
 		}
 	}
 
 	def addShip(s1 : Ship) : Player = {
-		val newListShip = s1 :: listShip
-		val newPlayer = copy(_listShip = newListShip)
-		return newPlayer
+		return copy(_listShip = s1 :: listShip)
 	}
 
 	def addShot(c1 : Coordinate, isGood : Boolean) : Player = {
 		isGood match {
 			case true => {
-				val newListShotGood = c1 :: listShotGood
-				val newPlayer = copy(_listShotGood = newListShotGood)
-				return newPlayer
+				return copy(_listShotGood = c1 :: listShotGood)
 			}
 			case false => {
-				val newListShotBad = c1 :: listShotBad
-				val newPlayer = copy(_listShotBad = newListShotBad)
-				return newPlayer
+				return copy(_listShotBad = c1 :: listShotBad)
 			}
 		}
 	}
 
 	def removeShip(s1 : Ship) : Player = {
 		val newListShip = listShip.filter(ship => !ship.equals(s1))
-		val newPlayer = copy(_listShip = newListShip)
-		return newPlayer
+		return copy(_listShip = newListShip)
 	}
 
-	def isShootGood(c1 : Coordinate) : Boolean = {
+	def isShotGood(c1 : Coordinate) : Boolean = {
 		return listShotGood.filter(c => c.x == c1.x && c.y == c1.y).size >= 1
 	}
 
-	def isShootBad(c1 : Coordinate) : Boolean = {
+	def isShotBad(c1 : Coordinate) : Boolean = {
 		return listShotBad.filter(c => c.x == c1.x && c.y == c1.y).size >= 1
 	}
 

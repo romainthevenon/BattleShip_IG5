@@ -34,11 +34,10 @@ case class Ship(_name : String, _size : Int, _listCoordinate : List[Coordinate])
 
 	def removeCoordinate(c1 : Coordinate) : Ship = {
 		val newListCoordinate = listCoordinate.filter(coordinate => !coordinate.equals(c1))
-		val newShip = copy(_listCoordinate = newListCoordinate)
-		return newShip
+		return copy(_listCoordinate = newListCoordinate)
 	}
 
-	def belongTo(c1 : Coordinate) : Boolean = {
+	def isContained(c1 : Coordinate) : Boolean = {
 		return listCoordinate.filter(c => c.x == c1.x && c.y == c1.y).size == 1
 	}
 

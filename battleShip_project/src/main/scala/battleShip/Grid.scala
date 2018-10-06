@@ -1,7 +1,10 @@
 package battleShip
 
+import scala.annotation.tailrec
+
 object Grid {
 
+  @tailrec
   def printGrilleMyShoots(xActuelle : Int, yActuelle: Int, p: Player) : Boolean = {
     if(yActuelle>10) {
       return true
@@ -16,9 +19,9 @@ object Grid {
       print("\n")
       return printGrilleMyShoots(1,yActuelle+1,p)
     } else {
-      if (p.isShootGood(Coordinate(xActuelle,yActuelle))) {
+      if (p.isShotGood(Coordinate(xActuelle,yActuelle))) {
         print("O ")
-      } else if (p.isShootBad(Coordinate(xActuelle,yActuelle))) {
+      } else if (p.isShotBad(Coordinate(xActuelle,yActuelle))) {
         print("X ")
       } else {
         print("- ")
@@ -27,6 +30,7 @@ object Grid {
     }
   }
 
+  @tailrec
   def printGrilleMyShips(xActuelle : Int, yActuelle: Int, p1: Player, p2 : Player) : Boolean = {
     if(yActuelle>10) {
       return true
@@ -34,16 +38,16 @@ object Grid {
       print("\n")
       return printGrilleMyShips(1,yActuelle+1,p1,p2)
     } else {
-      val res = p1.belongToOneShip(Coordinate(xActuelle,yActuelle))
+      val res = p1.isContainedInOneShip(Coordinate(xActuelle,yActuelle))
       res match {
         case Some(s) => {
           print(res.get.size+" ")
           return printGrilleMyShips(xActuelle+1,yActuelle,p1,p2)
         }
         case None => {
-          if(p2.isShootGood(Coordinate(xActuelle,yActuelle))) {
+          if(p2.isShotGood(Coordinate(xActuelle,yActuelle))) {
             print("O ")
-          } else if (p2.isShootBad(Coordinate(xActuelle,yActuelle))) {
+          } else if (p2.isShotBad(Coordinate(xActuelle,yActuelle))) {
             print("X ")
           } else {
             print("- ")

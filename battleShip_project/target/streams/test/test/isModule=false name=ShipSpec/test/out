@@ -1,2 +1,5 @@
 [0m[[0m[0minfo[0m] [0m[0m[32mShipSpec:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- Test issuperposed[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Test : issuperposed (check if ship is superposed on other ship[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Test : isSink (check if ship is sink)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Test : removeCoordinate (check if the coordinate is delete after use the function)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Test : isContained (check if the coordinate is contained in the ship)[0m[0m

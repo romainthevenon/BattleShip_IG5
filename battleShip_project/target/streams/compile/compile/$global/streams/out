@@ -1,17 +1,7 @@
-[0m[[0m[33mwarn[0m] [0m[0mD:\romain\Documents\Github\BattleShip_IG5\battleShip_project\src\main\scala\battleShip\Battleship.scala:3:19: imported `Coordinate' is permanently hidden by definition of object Coordinate in package battleShip[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\romain\Documents\Github\BattleShip_IG5\battleShip_project\src\main\scala\battleShip\Player.scala:3:19: imported `Coordinate' is permanently hidden by definition of object Coordinate in package battleShip[0m
 [0m[[0m[33mwarn[0m] [0m[0mimport battleShip.Coordinate[0m
 [0m[[0m[33mwarn[0m] [0m[0m                  ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\romain\Documents\Github\BattleShip_IG5\battleShip_project\src\main\scala\battleShip\Battleship.scala:4:19: imported `Ship' is permanently hidden by definition of object Ship in package battleShip[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\romain\Documents\Github\BattleShip_IG5\battleShip_project\src\main\scala\battleShip\Player.scala:4:19: imported `Ship' is permanently hidden by definition of object Ship in package battleShip[0m
 [0m[[0m[33mwarn[0m] [0m[0mimport battleShip.Ship[0m
 [0m[[0m[33mwarn[0m] [0m[0m                  ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\romain\Documents\Github\BattleShip_IG5\battleShip_project\src\main\scala\battleShip\Battleship.scala:5:19: imported `Player' is permanently hidden by definition of object Player in package battleShip[0m
-[0m[[0m[33mwarn[0m] [0m[0mimport battleShip.Player[0m
-[0m[[0m[33mwarn[0m] [0m[0m                  ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\romain\Documents\Github\BattleShip_IG5\battleShip_project\src\main\scala\battleShip\Battleship.scala:6:19: imported `Helpers' is permanently hidden by definition of object Helpers in package battleShip[0m
-[0m[[0m[33mwarn[0m] [0m[0mimport battleShip.Helpers[0m
-[0m[[0m[33mwarn[0m] [0m[0m                  ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mD:\romain\Documents\Github\BattleShip_IG5\battleShip_project\src\main\scala\battleShip\Battleship.scala:7:19: imported `Grid' is permanently hidden by definition of object Grid in package battleShip[0m
-[0m[[0m[33mwarn[0m] [0m[0mimport battleShip.Grid[0m
-[0m[[0m[33mwarn[0m] [0m[0m                  ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mthere were 11 deprecation warnings (since 2.11.0); re-run with -deprecation for details[0m
-[0m[[0m[33mwarn[0m] [0m[0m6 warnings found[0m
+[0m[[0m[33mwarn[0m] [0m[0mtwo warnings found[0m

@@ -1,0 +1,10 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mPlayerSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Test : createShip[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Test : isDead (check if the player is dead)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Test : isShootGood (check if the coordinate is contained in the ListShotGood)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Test : isShootBad (check if the coordinate is contained in the ListShotBad)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Test : reset (check if the ListShot and ListShip is empty after reset player)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Test : removeShip (check if the ship is remove)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Test : addShot (check if the shot is added in the list)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Test : addShip (check if the ship is added in the list)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Test : isContainedInOneShip (check if the coordinate is contained in one ship of the player)[0m[0m
