@@ -1,11 +1,16 @@
 package battleShip 
 
-import battleShip._
+import battleShip.Coordinate
 
 import scala.annotation.tailrec
 
-case class Ship(name : String, size : Int, listCoordinate : List[Coordinate]) {
+case class Ship(_name : String, _size : Int, _listCoordinate : List[Coordinate]) {
 
+	//getter
+	def name: String = _name
+	def size: Int = _size
+	def listCoordinate: List[Coordinate] = _listCoordinate
+	
 	def isSink() : Boolean = {
 		listCoordinate.isEmpty
 	}
@@ -29,7 +34,7 @@ case class Ship(name : String, size : Int, listCoordinate : List[Coordinate]) {
 
 	def removeCoordinate(c1 : Coordinate) : Ship = {
 		val newListCoordinate = listCoordinate.filter(coordinate => !coordinate.equals(c1))
-		val newShip = copy(listCoordinate = newListCoordinate)
+		val newShip = copy(_listCoordinate = newListCoordinate)
 		return newShip
 	}
 

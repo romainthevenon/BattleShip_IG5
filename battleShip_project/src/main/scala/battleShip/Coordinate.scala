@@ -1,6 +1,11 @@
 package battleShip
 
-case class Coordinate(x : Int, y : Int) {
+case class Coordinate(_x : Int, _y : Int) {
+
+	//getter
+	def x: Int = _x
+	def y: Int = _y
+
 
 	def isValid() : Boolean = {
 		if((0 < x) && (x <= 10) && (0 < y) && (y <= 10)) {

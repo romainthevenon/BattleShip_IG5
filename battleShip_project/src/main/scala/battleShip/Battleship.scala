@@ -3,275 +3,179 @@ package battleShip
 import battleShip.Coordinate
 import battleShip.Ship
 import battleShip.Player
+import battleShip.Helpers
+import battleShip.Grid
 
 import scala.io.StdIn.readLine
 import scala.annotation.tailrec
+import scala.util.Try
 
-object App {
+object BattleShip extends App {
 
-  def main(args : Array[String]) {
-    println("********************************")
-    println("********** BattleShip **********")
-    println("********************************")
-    println()
+  print("\033[H\033[2J")
+  println("********************************")
+  println("********** BattleShip **********")
+  println("********************************")
+  println()
 
-    chooseMode
-  }
+  chooseMode
 
-  def chooseMode() = {
+  def chooseMode() : Unit = {
     println("Choose the game mode (1: Human vs Human / 2: Human vs IA) :")
-    val gameMode = readInt
-    gameMode match {
+    val gameMode = Try(readInt)
+    gameMode.getOrElse(-1) match {
       case 1 => {
-        println()
+        //println()
+        print("\033[H\033[2J")
         println("You choose the game Human Vs Human !")
         println("************************************")
         println()
         println("Player 1 :")
-        val p1 = initialisePlayer
+        println("Enter name of player :")
+        val name1 = readLine
+        val p1 = Player(name1,Nil,Nil,Nil,0)
         println()
+
         println("Player 2 :")
-        val p2 = initialisePlayer
+        println("Enter name of player :")
+        val name2 = readLine
+        val p2 = Player(name2,Nil,Nil,Nil,0)
         game(p1,p2)
       }
       case 2 => {
-        println()
+        print("\033[H\033[2J")
         println("You choose the game Human Vs IA")
       }
       case _ => {
         println("Error, you should enter 1 or 2")
+        chooseMode
       } 
     }
   }
 
-  
-
-  def enterCoordinate() : Coordinate = {
-    val letters = List("A","B","C","D","E","F","G","H","I","J")
-    println("Enter coordinate X (between A and J) :")
-    val x = readLine
-    val res = letters.filter(letter => letter == x).size == 1
-    res match {
-      case true => {
-        val xInt = letters.indexOf(x) + 1
-        println("Enter coordinate Y (between 1 and 10) :")
-        var y = readInt
-        val c1 = Coordinate(xInt,y)
-        c1.isValid match {
-          case true => {
-            println("Coordinate enter : "+x+y)
-            return c1
-          }
-          case false => {
-            println("You enter a bad coordinate Y")
-            enterCoordinate
-          } 
-        }
-      }
-      case false => {
-        println("You enter a bad coordinate X")
-        enterCoordinate
-      }
-    } 
-  }
-
-  def enterDirection() : String = {
-    println("Enter direction (up,down,left or right) :")
-    val direction = readLine
-    if ((direction != "up") && (direction != "down") && (direction != "left") && (direction != "right")) {
-      println("You enter a bad direction")
-      enterDirection
-    } else {
-      println("Direction : "+direction)
-      return direction
-    }
-  }
-
-  def createShip(name : String, size : Int, p1 : Player) : Ship = {
-    val c = enterCoordinate
-    val d = enterDirection
-    val res = p1.createShip(name,size,c,d)
-    res match {
-      case Some(s) => {
-        if(p1.shipIsGood(res.get)) {
-          return res.get
-        } else {
-          createShip(name, size, p1)
-        }
-      }
-      case None => {
-        println("Bad ship !")
-        createShip(name, size, p1)
-      }  
-    }
-  }
-
-  def initialisePlayer() : Player = {
-    println("Enter name of player :")
-    val name = readLine
-    val p = Player(name,Nil,Nil)
-    println()
+  def initialisePlayer(p : Player) : Player = {
+    //val listShip = List(Ship("destroyer",2,Nil),Ship("submarine",3,Nil),Ship("cruiser",3,Nil),Ship("battleShip",4,Nil),Ship("carrier",5,Nil))
+    val listShip = List(Ship("destroyer",2,Nil),Ship("submarine",3,Nil))
+    print("\033[H\033[2J")
     println("******************************")
-    println("Initialization Player : "+name)
-    return createFleet(p,1)
+    println("Initialization Player : "+p.name)
+    println("----------")
+    return createFleet(p,listShip)
   }
-
-//destroyer --> 2 cases
-//submarine --> 3 cases
-//cruiser --> 3 cases
-// Battleship --> 4 cases
-//carrier --> 5 cases
 
   @tailrec
-  def createFleet(p: Player, index : Int) : Player = {
-    index match {
-      case 1 => {
-        println("----------")
-        println("Create Destroyer (Player : "+p.name+")")
-        println()
-        val s1 = createShip("destroyer",2,p)
-        val p1 = p.addShip(s1)
-        println()
-        println("Destroyer create !")
-        createFleet(p1,index + 1)
-      }
-/*
-      case 2 => {
-        println("----------")
-        println("Create Submarine (Player : "+p.name+")")
-        println()
-        val s2 = createShip("submarine",3,p)
-        val p2 = p.addShip(s2)
-        println()
-        println("Submarine create !")
-        createFleet(p2,index + 1)
-      }
-      case 3 => {
-        println("----------")
-        println("Create Cruiser (Player : "+p.name+")")
-        println()
-        val s3 = createShip("cruiser",3,p)
-        val p3 = p.addShip(s3)
-        println()
-        println("Cruiser create !")
-        createFleet(p3,index + 1)
-      }
-      case 4 => {
-        println("----------")
-        println("Create Battleship (Player : "+p.name+")")
-        println()
-        val s4 = createShip("battleShip",4,p)
-        val p4 = p.addShip(s4)
-        println()
-        println("BattleShip create !")
-        createFleet(p4,index + 1)
-      }
-      case 5 => {
-        println("----------")
-        println("Create Carrier (Player : "+p.name+")")
-        println()
-        val s5 = createShip("carrier",5,p)
-        val p5 = p.addShip(s5)
-        println()
-        println("Carrier create !")
-        createFleet(p5,index + 1)
-      }
-*/
-      case 2 => {
-        println()
+  def createFleet(p: Player, listShip : List[Ship]) : Player = {
+    if (listShip.isEmpty) {
         println("Initialization Player finish !")
+        println("Press any key to continue")
+        readLine
         return p
+    } else {
+      println("Create "+listShip.head.name+" (Player : "+p.name+")")
+      println()
+      val c = Helpers.enterCoordinate
+      val d = Helpers.enterDirection
+      val s1 = p.createShip(listShip.head.name,listShip.head.size,c,d)
+      s1 match {
+        case Some(s) => {
+          val p1 = p.addShip(s1.get)
+          println()
+          println(listShip.head.name+" create !")
+          println("----------")
+          createFleet(p1,listShip.tail) 
+        }
+        case None => {
+          println("Bad Ship ! No create !")
+          println("----------")
+          createFleet(p,listShip)
+        }
       }
     }
   }
 
-  def game(p1 : Player, p2 : Player) {
+  def round(p1 : Player, p2 : Player) : Player = {
+    print("\033[H\033[2J")
     if (!p1.isDead) {
       if (!p2.isDead) {
+        println("It's "+p1.name+ "'s turn :")
+        println("Grid with your ships and shot's opponent (O --> Good / X --> Bad) :")
+        Grid.printGrilleMyShips(1,1,p1,p2)
         println()
-        println(p1.name+ " à ton tour :")
-        println("*******************************")
-        println()
-        printGrilleMyShips(1,1,10,10,p1,p2)
-        println()
-        println("*******************************")
-        println()
-        printGrilleMyShoots(1,1,10,10,p1)
-        println()
-        val c1 = enterCoordinate
-        val newP1 = p1.addShot(c1)
+        println("Grid with your shoots (O --> Good / X --> Bad) :")
+        Grid.printGrilleMyShoots(1,1,p1)
+        val c1 = Helpers.enterCoordinate
         val res = p2.belongToOneShip(c1)
         res match {
           case None => {
+            val newP1 = p1.addShot(c1, false)
             println()
-            println("A l'eau !!!")
-            game(p2, newP1)
+            println("It's a miss !!!")
+            println("Press any key to continue")
+            readLine
+            round(p2, newP1)
           }
           case Some(s) => {
+            val newP1 = p1.addShot(c1,true)
             val b = res.get
             val newB = b.removeCoordinate(c1)
             if (newB.isSink) {
               val newP2 = p2.removeShip(b)
               println()
-              println(newB.name+" coulé !!!")
-              game(newP2, newP1)
+              println(newB.name+" sinked !!!")
+              println("Press any key to continue")
+              readLine
+              round(newP2, newP1)
             } else {
               val indexP2 = p2.removeShip(b)
               val newP2 = indexP2.addShip(newB)
               println()
-              println(newB.name+" touché !!!")
-              game(newP2, newP1)
+              println(newB.name+" touched !!!")
+              println("Press any key to continue")
+              readLine
+              round(newP2, newP1)
             }
           } 
         }
       } else {
-        println(p1.name+" win !!!!")
+        println(p1.name+" win this game !!!!")
+        println()
+        val newP1 = p1.addScore
+        println(newP1.name+" win "+newP1.score)
+        println(p2.name+" win "+p2.score)
+        return newP1
       }
     } else {
-      println(p2.name+" win !!!!!!")
+        println(p2.name+" win !!!!")
+        val newP2 = p2.addScore
+        println("----------------------")
+        println(newP2.name+" win "+newP2.score+" games !")
+        println(p1.name+" win "+p1.score+" games !")
+        return newP2
     }
   }
 
-  def printGrilleMyShoots(xActuelle : Int, yActuelle: Int, xFin: Int, yFin: Int, p: Player) : Boolean = {
-    if(yActuelle>yFin) {
-      return true
-    } else if (xActuelle>xFin) {
-      print("\n")
-      return printGrilleMyShoots(1,yActuelle+1,xFin,yFin,p)
-    } else {
-      if (p.isShoot(Coordinate(xActuelle,yActuelle))) {
-        print("X")
-      } else {
-        print("-")
+  def game(p1: Player, p2: Player) : Unit = {
+    val newP1 = initialisePlayer(p1)
+    val newP2 = initialisePlayer(p2)
+    val pWinner = round(newP1,newP2)
+    println("Press q to quit the game or any key to play again !")
+    val res = readLine
+    res match {
+      case "q" => {
+        println("Good bye !!!") 
       }
-      return printGrilleMyShoots(xActuelle+1,yActuelle,xFin,yFin,p)
-    }
-  }
-
-  def printGrilleMyShips(xActuelle : Int, yActuelle: Int, xFin: Int, yFin: Int, p1: Player, p2 : Player) : Boolean = {
-    if(yActuelle>yFin) {
-      return true
-    } else if (xActuelle>xFin) {
-      print("\n")
-      return printGrilleMyShips(1,yActuelle+1,xFin,yFin,p1,p2)
-    } else {
-      val res = p1.belongToOneShip(Coordinate(xActuelle,yActuelle))
-      res match {
-        case Some(s) => {
-          print(res.get.size)
-          return printGrilleMyShips(xActuelle+1,yActuelle,xFin,yFin,p1,p2)
+      case _ => {
+        if (newP1.name == pWinner.name) {
+          val p1Reset = pWinner.reset()
+          val p2Reset = newP2.reset()
+          game(p2Reset,p1Reset)
+        } else {
+          val p1Reset = newP1.reset()
+          val p2Reset = pWinner.reset()
+          game(p2Reset,p1Reset)
         }
-        case None => {
-          if(p2.isShoot(Coordinate(xActuelle,yActuelle))) {
-            print("X")
-          } else {
-            print("-")
-          }
-          return printGrilleMyShips(xActuelle+1,yActuelle,xFin,yFin,p1,p2)
-        } 
       }
     }
   }
-
 
 }
