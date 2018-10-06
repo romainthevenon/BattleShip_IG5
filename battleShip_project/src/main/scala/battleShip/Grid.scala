@@ -4,17 +4,14 @@ import scala.annotation.tailrec
 
 object Grid {
 
+  /**
+      * This function allows to print grid of the shoots to the player 
+      * @return Boolean : true when the grid is print
+      */
   @tailrec
   def printGrilleMyShoots(xActuelle : Int, yActuelle: Int, p: Player) : Boolean = {
     if(yActuelle>10) {
       return true
- /*   } else if (yActuelle == 0) {
-      println("     "+)
-    }
-    } else if (xActuelle == 0) {
-      print(yActuelle+" || ")
-      return printGrilleMyShoots(xActuelle+1,yActuelle,p)
-*/
     } else if (xActuelle>10) {
       print("\n")
       return printGrilleMyShoots(1,yActuelle+1,p)
@@ -30,6 +27,10 @@ object Grid {
     }
   }
 
+  /**
+      * This function allows to print grid of the ships to the player and the shoots to the other player
+      * @return Boolean : true when the grid is print
+      */
   @tailrec
   def printGrilleMyShips(xActuelle : Int, yActuelle: Int, p1: Player, p2 : Player) : Boolean = {
     if(yActuelle>10) {

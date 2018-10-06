@@ -5,9 +5,15 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/src/main/scala/battleShip/Ship.scala" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/src/main/scala/battleShip/Ship.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/target/.history" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/.history" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/battleship_project_2.12-0.1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/battleship_project_2.12-0.1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Coordinate$.class" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Coordinate$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Coordinate.class" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Coordinate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Ship$.class" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Ship$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Ship.class" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Ship.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compile/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compile/$global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compileIncSetup/$global/streams/inc_compile_2.12.zip" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compileIncSetup/$global/streams/inc_compile_2.12.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compileIncremental/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compileIncremental/$global/streams/export" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compileIncremental/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compileIncremental/$global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/battleShip_project/target/streams/compile/packageBin/$global/streams/inputs" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/streams/compile/packageBin/$global/streams/inputs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +70,7 @@
         <entry file="file://$PROJECT_DIR$/battleShip_project/src/main/scala/battleShip/Grid.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="748">
-              <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
+              <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -82,7 +88,7 @@
         <entry file="file://$PROJECT_DIR$/battleShip_project/src/main/scala/battleShip/Helpers.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="799">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
+              <caret line="55" selection-start-line="55" selection-end-line="55" />
             </state>
           </provider>
         </entry>
@@ -245,7 +251,7 @@
     <entry file="file://$PROJECT_DIR$/battleShip_project/src/main/scala/battleShip/Grid.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
-          <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
+          <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -259,7 +265,7 @@
     <entry file="file://$PROJECT_DIR$/battleShip_project/src/main/scala/battleShip/Helpers.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
         </state>
       </provider>
     </entry>

@@ -4,6 +4,10 @@ import scala.util.Try
 
 object Helpers {
 
+	/**
+      * This function returns the coordinate enter by the user, check if the position X and Y enter by the user is valid
+      * @return Coordinate : the coordinate enter by the user
+      */
 	def enterCoordinate() : Coordinate = {
 	    val letters = List("A","B","C","D","E","F","G","H","I","J")
 	    println("Enter coordinate X (between A and J) :")
@@ -33,6 +37,10 @@ object Helpers {
 	    } 
  	}
 
+	/**
+      * This function returns the string enter by the user, check if the direction enter by the user is "H" or "V"
+      * @return String : the direction enter by the user (it is "H" or "V")
+      */
 	def enterDirection() : String = {
 	    println("Enter direction (V for vertical or H for horizontal) :")
 	    val direction = readLine.toUpperCase
