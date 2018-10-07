@@ -1,12 +1,6 @@
 package battleShip
 
-import battleShip.Coordinate
-import battleShip.Ship
-import battleShip.Player
-import battleShip.Helpers
-import battleShip.Grid
-import battleShip.IALower
-import battleShip.IAMedium
+import battleShip._
 
 import scala.io.StdIn.readLine
 import scala.annotation.tailrec
@@ -176,7 +170,7 @@ object BattleShip extends App {
     val newP2 = initialisePlayer(p2)
     val listP = round(newP1,newP2)
     nbRound match {
-      case 1999 => {
+      case 19999 => {
         println("Game : "+newP1.name+" VS "+newP2.name)
         println("----------")
         println(listP(0).name+" win "+listP(0).score+" games !")

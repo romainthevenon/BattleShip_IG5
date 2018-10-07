@@ -1,6 +1,6 @@
 package battleShip
 
-import battleShip.Player
+import battleShip._
 import scala.util.Try
 
 object Helpers {

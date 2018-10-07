@@ -1,7 +1,7 @@
 package battleShip
 
-import battleShip.Coordinate
-import battleShip.Ship
+import battleShip._
+
 import scala.annotation.tailrec
 
 /**

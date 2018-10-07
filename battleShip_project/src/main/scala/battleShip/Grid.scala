@@ -1,5 +1,6 @@
 package battleShip
 
+import battleShip._
 import scala.annotation.tailrec
 
 object Grid {
