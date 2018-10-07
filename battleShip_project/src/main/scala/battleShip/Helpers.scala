@@ -1,5 +1,6 @@
 package battleShip
 
+import battleShip.Player
 import scala.util.Try
 
 object Helpers {
@@ -8,7 +9,7 @@ object Helpers {
       * This function returns the coordinate enter by the user, check if the position X and Y enter by the user is valid
       * @return Coordinate : the coordinate enter by the user
       */
-	def enterCoordinate() : Coordinate = {
+	private def enterCoordinate() : Coordinate = {
 	    val letters = List("A","B","C","D","E","F","G","H","I","J")
 	    println("Enter coordinate X (between A and J) :")
 	    val x = readLine.toUpperCase
@@ -41,7 +42,7 @@ object Helpers {
       * This function returns the string enter by the user, check if the direction enter by the user is "H" or "V"
       * @return String : the direction enter by the user (it is "H" or "V")
       */
-	def enterDirection() : String = {
+	private def enterDirection() : String = {
 	    println("Enter direction (V for vertical or H for horizontal) :")
 	    val direction = readLine.toUpperCase
 	    if ((direction != "H") && (direction != "V")) {
@@ -66,5 +67,41 @@ object Helpers {
 			}	
 		}
 	}
+
+	def coordinateToShot(p :Player) : Coordinate = {
+	    if (p.isIA == true) {
+	      p.name match {
+	        case "IALower" => IALower.chooseCoordinate
+	        case "IAMedium" => IAMedium.chooseCoordinateToShot(p)
+	        case "IAHard" => IAHard.chooseCoordinateToShot(p)
+	      }
+	    } else {
+	      enterCoordinate
+	    }
+  	}
+
+  	def coordinateToPlaceShip(p: Player) : Coordinate = {
+    	if (p.isIA == true) {
+      		p.name match {
+        		case "IALower" => IALower.chooseCoordinate
+        		case "IAMedium" => IAMedium.chooseCoordinateToPlaceShip
+        		case "IAHard" => IAHard.chooseCoordinateToPlaceShip
+      		}
+    	} else {
+      		enterCoordinate
+    	}
+  	}
+
+  	def directionToPlaceShip(p : Player) : String = {
+	    if (p.isIA == true) {
+	      p.name match {
+	        case "IALower" => IALower.chooseDirection
+	        case "IAMedium" => IAMedium.chooseDirection
+	        case "IAHard" => IAHard.chooseDirection
+	      }
+	    } else {
+	      enterDirection
+	    }
+  	}
 
 }

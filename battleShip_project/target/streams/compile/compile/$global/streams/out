@@ -13,5 +13,11 @@
 [0m[[0m[33mwarn[0m] [0m[0mD:\romain\Documents\Github\BattleShip_IG5\battleShip_project\src\main\scala\battleShip\Battleship.scala:7:19: imported `Grid' is permanently hidden by definition of object Grid in package battleShip[0m
 [0m[[0m[33mwarn[0m] [0m[0mimport battleShip.Grid[0m
 [0m[[0m[33mwarn[0m] [0m[0m                  ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mthere were 12 deprecation warnings (since 2.11.0); re-run with -deprecation for details[0m
-[0m[[0m[33mwarn[0m] [0m[0m6 warnings found[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\romain\Documents\Github\BattleShip_IG5\battleShip_project\src\main\scala\battleShip\Battleship.scala:8:19: imported `IALower' is permanently hidden by definition of object IALower in package battleShip[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport battleShip.IALower[0m
+[0m[[0m[33mwarn[0m] [0m[0m                  ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\romain\Documents\Github\BattleShip_IG5\battleShip_project\src\main\scala\battleShip\Battleship.scala:9:19: imported `IAMedium' is permanently hidden by definition of object IAMedium in package battleShip[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport battleShip.IAMedium[0m
+[0m[[0m[33mwarn[0m] [0m[0m                  ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mthere were 14 deprecation warnings (since 2.11.0); re-run with -deprecation for details[0m
+[0m[[0m[33mwarn[0m] [0m[0m8 warnings found[0m

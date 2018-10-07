@@ -5,22 +5,16 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/src/main/scala/battleShip/Battleship.scala" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/src/main/scala/battleShip/Battleship.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/src/main/scala/battleShip/Helpers.scala" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/src/main/scala/battleShip/Helpers.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/battleShip_project/src/main/scala/battleShip/Player.scala" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/src/main/scala/battleShip/Player.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/battleShip_project/src/test/scala/PlayerSpec.scala" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/src/test/scala/PlayerSpec.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/target/.history" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/.history" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/battleship_project_2.12-0.1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/battleship_project_2.12-0.1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/BattleShip$.class" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/BattleShip$.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/BattleShip$delayedInit$body.class" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/BattleShip$delayedInit$body.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/BattleShip.class" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/BattleShip.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Grid$.class" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Grid$.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Helpers$.class" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Helpers$.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Helpers.class" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Helpers.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Player$.class" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Player$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Ship.class" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Ship.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compile/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compile/$global/streams/out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compileIncSetup/$global/streams/inc_compile_2.12.zip" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compileIncSetup/$global/streams/inc_compile_2.12.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compileIncremental/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compileIncremental/$global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compileIncremental/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compileIncremental/$global/streams/out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/target/streams/compile/packageBin/$global/streams/inputs" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/streams/compile/packageBin/$global/streams/inputs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/target/streams/compile/packageBin/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/streams/compile/packageBin/$global/streams/out" afterDir="false" />
     </list>
@@ -96,8 +90,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/battleShip_project/src/main/scala/battleShip/Helpers.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="935">
-              <caret line="55" selection-start-line="55" selection-end-line="55" />
+            <state relative-caret-position="952">
+              <caret line="56" selection-start-line="56" selection-end-line="56" />
             </state>
           </provider>
         </entry>
@@ -126,7 +120,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="15" />
     <option name="y" value="30" />
     <option name="width" value="1890" />
@@ -217,7 +211,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25910932" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -273,8 +267,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/battleShip_project/src/main/scala/battleShip/Helpers.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
+        <state relative-caret-position="952">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
         </state>
       </provider>
     </entry>
