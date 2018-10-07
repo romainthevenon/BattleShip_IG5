@@ -1,2 +1,4 @@
-[0m[[0m[33mwarn[0m] [0m[0mthere were 14 deprecation warnings (since 2.11.0); re-run with -deprecation for details[0m
-[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
+[0m[[0m[31merror[0m] [0m[0mD:\romain\Documents\Github\BattleShip_IG5\battleShip_project\src\main\scala\battleShip\Helpers\Grid.scala:146:17: not found: value p1[0m
+[0m[[0m[31merror[0m] [0m[0m      val res = p1.isContainedInOneShip(Coordinate(xCurrent,yCurrent))[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

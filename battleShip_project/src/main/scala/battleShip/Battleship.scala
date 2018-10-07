@@ -9,7 +9,7 @@ import scala.util.Random
 
 object BattleShip extends App {
 
-  print("\033[H\033[2J")
+  Helpers.clear
   println("********************************")
   println("********** BattleShip **********")
   println("********************************")
@@ -19,7 +19,7 @@ object BattleShip extends App {
   val res = Helpers.chooseMode
   res match {
     case 1 => {
-      print("\033[H\033[2J")
+      Helpers.clear
       println("You choose the game Human Vs Human !")
       println("************************************")
       println()
@@ -36,7 +36,7 @@ object BattleShip extends App {
       game(p1,p2)
     }
     case 2 => {
-      print("\033[H\033[2J")
+      Helpers.clear
       println("You choose the game Human Vs AI")
       println("************************************")
       println("Choose the AI Level (1: Low / 2: Medium / 3:Hight) :")
@@ -62,14 +62,14 @@ object BattleShip extends App {
       }
     }
     case 3 => {
-      print("\033[H\033[2J")
+      Helpers.clear
       println("You choose the game AI Vs AI")
       val p1 = Player("AILower",Nil,Nil,Nil,0,true)
       val p2 = Player("AIMedium",Nil,Nil,Nil,0,true)
       val p3 = Player("AIHard",Nil,Nil,Nil,0,true)
-      gameAIVsAI(p1,p2,0)
-      gameAIVsAI(p1,p3,0)
-      gameAIVsAI(p2,p3,0)
+      gameAIVsAI(p1,p2,1,100)
+      gameAIVsAI(p1,p3,1,100)
+      gameAIVsAI(p2,p3,1,100)
     } 
   }
 
@@ -78,11 +78,12 @@ object BattleShip extends App {
       * @param p The first player (it is the first player to play)
       * @param p2 The second player
       */
+  @tailrec
   def game(p1: Player, p2: Player) : Unit = {
     val newP1 = initialisePlayer(p1)
     val newP2 = initialisePlayer(p2)
     val listP = round(newP1,newP2)
-    print("\033[H\033[2J")
+    Helpers.clear
     println(listP(0).name+" win this game !")
     println()
     println(listP(0).name+" win "+listP(0).score+" games !")
@@ -107,22 +108,23 @@ object BattleShip extends App {
       * @param p2 The second player
       * @param nbRound Number of current round
       */
-  def gameAIVsAI(p1 : Player, p2 : Player, nbRound : Int) : Unit = {
+  @tailrec
+  def gameAIVsAI(p1 : Player, p2 : Player, nbRound : Int, nbGlobal : Int) : Unit = {
     val newP1 = initialisePlayer(p1)
     val newP2 = initialisePlayer(p2)
     val listP = round(newP1,newP2)
-    nbRound match {
-      case 99 => {
+    (nbRound == nbGlobal) match {
+      case true => {
         println("Game : "+newP1.name+" VS "+newP2.name)
         println("----------")
         println(listP(0).name+" win "+listP(0).score+" games !")
         println(listP(1).name+" win "+listP(1).score+" games !")
         println()
       }
-      case _ => {
+      case false => {
           val p1Reset = listP(0).reset()
           val p2Reset = listP(1).reset()
-          gameAIVsAI(p2Reset,p1Reset,nbRound+1)
+          gameAIVsAI(p2Reset,p1Reset,nbRound+1,nbGlobal)
       }
     }
   }
@@ -135,17 +137,18 @@ object BattleShip extends App {
       * @param p2 The second player
       * @return List(Player) Both players
       */
+  @tailrec
   def round(p1 : Player, p2 : Player) : List[Player] = {
     if (!p1.isDead) {
       if (!p2.isDead) {
         if (p1.isAI == false) {
-          print("\033[H\033[2J")
+          Helpers.clear
           println("It's "+p1.name+ "'s turn :")
           println("Grid with your ships and shot's opponent (O --> Good / X --> Bad) :")
-          Grid.printGrilleMyShips(1,1,p1,p2)
+          Grid.printGrilleMyShipsAndShotsOpposing(0,0,p1,p2)
           println()
           println("Grid with your shoots (O --> Good / X --> Bad) :")
-          Grid.printGrilleMyShoots(1,1,p1)
+          Grid.printGrilleMyShoots(0,0,p1)
         }
         //val coordinate = Helpers.enterCoordinate
         val coordinate = Helpers.coordinateToShot(p1)
@@ -169,7 +172,7 @@ object BattleShip extends App {
               val newP2 = p2.removeShip(ship)
               if (p1.isAI == false) {
                 println()
-                println(newShip.name+" sinked !!!")
+                println(newShip.name+"(size = "+newShip.size+") sinked !!!")
                 println("Press any key to continue")
                 readLine
               }
@@ -179,7 +182,7 @@ object BattleShip extends App {
               val newP2 = indexP2.addShip(newShip)
               if (p1.isAI == false) {
                 println()
-                println(newShip.name+" touched !!!")
+                println(newShip.name+"(size = "+newShip.size+") touched !!!")
                 println("Press any key to continue")
                 readLine
               }
@@ -203,11 +206,11 @@ object BattleShip extends App {
       * @return Player The new player with all ships initialized
       */
   def initialisePlayer(p : Player) : Player = {
-    val listShip = List(Ship("destroyer",2,Nil),Ship("submarine",3,Nil),Ship("cruiser",3,Nil),Ship("battleShip",4,Nil),Ship("carrier",5,Nil))
-    //val listShip = List(Ship("destroyer",2,Nil),Ship("submarine",3,Nil))
+    //val listShip = List(Ship("destroyer",2,Nil),Ship("submarine",3,Nil),Ship("cruiser",3,Nil),Ship("battleShip",4,Nil),Ship("carrier",5,Nil))
+    val listShip = List(Ship("destroyer",2,Nil),Ship("submarine",3,Nil))
     //val listShip = List(Ship("destroyer",2,Nil))
     if (p.isAI == false) {
-      print("\033[H\033[2J")
+      Helpers.clear
       println("******************************")
       println("Initialization Player : "+p.name)
       println("----------")
@@ -232,7 +235,8 @@ object BattleShip extends App {
       return p
     } else {
       if(p.isAI == false) {
-        println("Create "+listShip.head.name+" (Player : "+p.name+")")
+        Grid.printGrilleMyShips(0,0,p)
+        println("Create "+listShip.head.name+"(size = "+listShip.head.size+") (Player : "+p.name+")")
         println()
       }
       val coordinate = Helpers.coordinateToPlaceShip(p)
@@ -242,14 +246,15 @@ object BattleShip extends App {
         case Some(s) => {
           val newP = p.addShip(ship.get)
           if (p.isAI == false) {
-            println()
-            println(listShip.head.name+" create !")
+            Helpers.clear
+            println(listShip.head.name+"(size = "+listShip.head.size+") create !")
             println("----------")
           }
           createFleet(newP,listShip.tail) 
         }
         case None => {
           if (p.isAI == false) {
+            Helpers.clear
             println("Bad Ship ! No create !")
             println("----------")
           }

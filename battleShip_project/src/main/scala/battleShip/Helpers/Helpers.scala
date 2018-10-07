@@ -123,4 +123,11 @@ object Helpers {
 	    }
   	}
 
+	/**
+      * This function allows to clear the console
+      */
+  	def clear() : Unit = {
+  		print("\033[H\033[2J")
+  	}
+
 }

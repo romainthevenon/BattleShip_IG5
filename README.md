@@ -1,7 +1,7 @@
 # BattleShip_IG5
 It is a simple battleship game, developed in Scala during my 5th year at Polytech Montpellier.  
   I used Scala (v2.12.6), SBT and ScalaTest.
-## How to use it ?
+## Installation
 //todo
 ## Test AI
 This project use different AI (low, medium and hard). In order to check if hard > medium > low, it is possible to launch multiple games between each AI (default : 100 games).
