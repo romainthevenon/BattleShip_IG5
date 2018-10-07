@@ -31,19 +31,18 @@ object Grid {
     } else if (xCurrent == 0) {
       if (yCurrent == 10) {
         print(yCurrent+" || ")
-        return printGrilleMyShoots(xCurrent+1,yCurrent,p)
       } else {
         print(yCurrent+"  || ")
-        return printGrilleMyShoots(xCurrent+1,yCurrent,p)
       }
+      return printGrilleMyShoots(xCurrent+1,yCurrent,p)
     } else if (xCurrent>10) {
       print("\n")
       return printGrilleMyShoots(0,yCurrent+1,p)
     } else {
       if (p.isShotGood(Coordinate(xCurrent,yCurrent))) {
-        print("O ")
+        print(Console.GREEN+"O "+Console.RESET)
       } else if (p.isShotBad(Coordinate(xCurrent,yCurrent))) {
-        print("X ")
+        print(Console.RED+"X "+Console.RESET)
       } else {
         print("- ")
       }
@@ -78,11 +77,10 @@ object Grid {
     } else if (xCurrent == 0) {
       if (yCurrent == 10) {
         print(yCurrent+" || ")
-        return printGrilleMyShipsAndShotsOpposing(xCurrent+1,yCurrent,p1,p2)
       } else {
         print(yCurrent+"  || ")
-        return printGrilleMyShipsAndShotsOpposing(xCurrent+1,yCurrent,p1,p2)
       }
+      return printGrilleMyShipsAndShotsOpposing(xCurrent+1,yCurrent,p1,p2)
     } else if (xCurrent>10) {
       print("\n")
       return printGrilleMyShipsAndShotsOpposing(0,yCurrent+1,p1,p2)
@@ -90,14 +88,14 @@ object Grid {
       val res = p1.isContainedInOneShip(Coordinate(xCurrent,yCurrent))
       res match {
         case Some(s) => {
-          print(res.get.size+" ")
+          print(Console.BLUE+res.get.size+" "+Console.RESET)
           return printGrilleMyShipsAndShotsOpposing(xCurrent+1,yCurrent,p1,p2)
         }
         case None => {
           if(p2.isShotGood(Coordinate(xCurrent,yCurrent))) {
-            print("O ")
+            print(Console.GREEN+"O "+Console.RESET)
           } else if (p2.isShotBad(Coordinate(xCurrent,yCurrent))) {
-            print("X ")
+            print(Console.RED+"X "+Console.RESET)
           } else {
             print("- ")
           }
@@ -108,11 +106,10 @@ object Grid {
   }
 
   /**
-      * This function allows to print grid of the ships to the player and the shoots to the other player
+      * This function allows to print grid of the ships to the player
       * @param xCurrent
       * @param yCurrent
-      * @param p1 The player
-      * @param p2 The opponent player
+      * @param p The player
       * @return Boolean : true when the grid is print
       */
   @tailrec
@@ -134,11 +131,10 @@ object Grid {
     } else if (xCurrent == 0) {
       if (yCurrent == 10) {
         print(yCurrent+" || ")
-        return printGrilleMyShips(xCurrent+1,yCurrent,p)
       } else {
         print(yCurrent+"  || ")
-        return printGrilleMyShips(xCurrent+1,yCurrent,p)
       }
+      return printGrilleMyShips(xCurrent+1,yCurrent,p)
     } else if (xCurrent>10) {
       print("\n")
       return printGrilleMyShips(0,yCurrent+1,p)
@@ -146,7 +142,7 @@ object Grid {
       val res = p.isContainedInOneShip(Coordinate(xCurrent,yCurrent))
       res match {
         case Some(s) => {
-          print(res.get.size+" ")
+          print(Console.BLUE+res.get.size+" "+Console.RESET)
           return printGrilleMyShips(xCurrent+1,yCurrent,p)
         }
         case None => {

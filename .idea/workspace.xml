@@ -3,20 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="117685f2-ec1d-4252-9616-5b3638dc69ef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/battleShip_project/src/main/scala/battleShip/Battleship.scala" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/src/main/scala/battleShip/Battleship.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/src/main/scala/battleShip/Helpers/Grid.scala" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/src/main/scala/battleShip/Helpers/Grid.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/battleShip_project/src/main/scala/battleShip/Helpers/Helpers.scala" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/src/main/scala/battleShip/Helpers/Helpers.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/target/.history" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/.history" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/battleship_project_2.12-0.1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/battleship_project_2.12-0.1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/BattleShip$.class" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/BattleShip$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/BattleShip.class" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/BattleShip.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Grid$.class" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Grid$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Grid.class" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Grid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Helpers$.class" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Helpers$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Helpers.class" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/scala-2.12/classes/battleShip/Helpers.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compile/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compile/$global/streams/out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compileIncSetup/$global/streams/inc_compile_2.12.zip" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compileIncSetup/$global/streams/inc_compile_2.12.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compileIncremental/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/streams/compile/compileIncremental/$global/streams/export" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/battleShip_project/target/streams/compile/packageBin/$global/streams/inputs" beforeDir="false" afterPath="$PROJECT_DIR$/battleShip_project/target/streams/compile/packageBin/$global/streams/inputs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,7 +21,7 @@
     <session id="-788740033">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.11" value="3" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.8" value="1" />
