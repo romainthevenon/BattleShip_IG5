@@ -4,22 +4,22 @@ import battleShip._
 
 class PlayerSpec extends FunSuite {
 
-	test("Test : createShip") {
-		val p1 = Player("test",Nil,Nil,Nil,0)
-		val c1 = Coordinate(1,1)
-		val c2 = Coordinate(2,1)
-		val s1 = p1.createShip("destroyer",2,c1,"H")
+	 test("Test : createShip") {
+  		val p1 = Player("test",Nil,Nil,Nil,0,false)
+  		val c1 = Coordinate(1,1)
+  		val c2 = Coordinate(2,1)
+  		val s1 = p1.createShip("destroyer",2,c1,"H")
     	
     	assert(s1.get.isContained(c1))
     	assert(s1.get.isContained(c2))
   	}
 
   	test("Test : isDead (check if the player is dead)") {
-		val c1 = Coordinate(1,1)
-		val c2 = Coordinate(2,1)
-		val s1 = Ship("destroyer",2,List(Coordinate(1,1),Coordinate(1,2)))
-		val p1 = Player("test",Nil,Nil,Nil,0)
-		val p2 = Player("test",List(s1),List(c1),List(c2),1)
+  		val c1 = Coordinate(1,1)
+  		val c2 = Coordinate(2,1)
+  		val s1 = Ship("destroyer",2,List(Coordinate(1,1),Coordinate(1,2)))
+  		val p1 = Player("test",Nil,Nil,Nil,0,false)
+  		val p2 = Player("test",List(s1),List(c1),List(c2),1,false)
   		
   		assert(p1.isDead)
   		assert(!p2.isDead)
@@ -27,17 +27,17 @@ class PlayerSpec extends FunSuite {
 
   	test("Test : isShootGood (check if the coordinate is contained in the ListShotGood)") {
   		val c1 = Coordinate(1,1)
-		val c2 = Coordinate(2,1)	
-  		val p2 = Player("test",Nil,List(c1),List(c2),1)
+		  val c2 = Coordinate(2,1)	
+  		val p2 = Player("test",Nil,List(c1),List(c2),1,false)
   		
   		assert(p2.isShotGood(c1))
   		assert(!p2.isShotGood(c2))
   	}
 
   	test("Test : isShootBad (check if the coordinate is contained in the ListShotBad)") {
-  	  	val c1 = Coordinate(1,1)
-		val c2 = Coordinate(2,1)	
-  		val p2 = Player("test",Nil,List(c1),List(c2),1)
+  	  val c1 = Coordinate(1,1)
+		  val c2 = Coordinate(2,1)	
+  		val p2 = Player("test",Nil,List(c1),List(c2),1,false)
 
   		assert(!p2.isShotBad(c1))
   		assert(p2.isShotBad(c2))
@@ -47,7 +47,7 @@ class PlayerSpec extends FunSuite {
   		val c1 = Coordinate(1,1)
 		val c2 = Coordinate(2,1)
   		val s1 = Ship("destroyer",2,List(Coordinate(1,1),Coordinate(1,2)))
-  		val p1 = Player("test",List(s1),List(c1),List(c2),1)
+  		val p1 = Player("test",List(s1),List(c1),List(c2),1,false)
 		val p2 = p1.reset
 
   		assert(p2.isDead)
@@ -63,7 +63,7 @@ class PlayerSpec extends FunSuite {
   		val c1 = Coordinate(1,1)
 		val c2 = Coordinate(2,1)	
   		val s1 = Ship("destroyer",2,List(Coordinate(1,1),Coordinate(1,2)))
-		val p1 = Player("test",List(s1),List(c1),List(c2),1)	
+		val p1 = Player("test",List(s1),List(c1),List(c2),1,false)	
   		val p2 = p1.removeShip(s1)
   		assert(p2.isDead)
   	}
@@ -85,7 +85,7 @@ class PlayerSpec extends FunSuite {
   		val c1 = Coordinate(1,1)
   		val c2 = Coordinate(1,2)
   		val s1 = Ship("destroyer",2,List(c1,c2))
-  		val p1 = Player("test",Nil,Nil,Nil,0)
+  		val p1 = Player("test",Nil,Nil,Nil,0,false)
   		val p2 = p1.addShip(s1)
 
   		assert(!p2.listShip.isEmpty)
@@ -97,14 +97,14 @@ class PlayerSpec extends FunSuite {
   		val c2 = Coordinate(1,2)
   		val c3 = Coordinate(4,2)
   		val s1 = Ship("destroyer",2,List(c1,c2))
-  		val p1 = Player("test",List(s1),Nil,Nil,0)
+  		val p1 = Player("test",List(s1),Nil,Nil,0,false)
 
   		assert(p1.isContainedInOneShip(c1) != None)
   		assert(p1.isContainedInOneShip(c3) == None)
   	}
 
   	test("Test : addScore (check if the score is increased)") {
-  		val p1 = Player("test",Nil,Nil,Nil,0)
+  		val p1 = Player("test",Nil,Nil,Nil,0,false)
   		val p2 = p1.addScore
 
   		assert(p2.score == 1)

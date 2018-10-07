@@ -10,6 +10,8 @@
 [0m[[0m[0mdebug[0m] [0m[0m	  D:\romain\Documents\Github\BattleShip_IG5\battleShip_project\target\scala-2.12\classes\battleShip\Ship$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	battleShip\Coordinate$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  D:\romain\Documents\Github\BattleShip_IG5\battleShip_project\target\scala-2.12\classes\battleShip\Coordinate$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	battleShip\IALower$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  D:\romain\Documents\Github\BattleShip_IG5\battleShip_project\target\scala-2.12\classes\battleShip\IALower$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	battleShip\BattleShip.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  D:\romain\Documents\Github\BattleShip_IG5\battleShip_project\target\scala-2.12\classes\battleShip\BattleShip.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	battleShip\Helpers.class[0m
@@ -24,6 +26,8 @@
 [0m[[0m[0mdebug[0m] [0m[0m	  D:\romain\Documents\Github\BattleShip_IG5\battleShip_project\target\scala-2.12\classes\battleShip\Grid$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	battleShip\Player.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  D:\romain\Documents\Github\BattleShip_IG5\battleShip_project\target\scala-2.12\classes\battleShip\Player.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	battleShip\IALower.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  D:\romain\Documents\Github\BattleShip_IG5\battleShip_project\target\scala-2.12\classes\battleShip\IALower.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	battleShip\Player$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	  D:\romain\Documents\Github\BattleShip_IG5\battleShip_project\target\scala-2.12\classes\battleShip\Player$.class[0m
 [0m[[0m[0mdebug[0m] [0m[0m	battleShip\BattleShip$delayedInit$body.class[0m

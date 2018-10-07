@@ -54,4 +54,17 @@ object Helpers {
 	    }
 	}
 
+	def chooseMode() : Int = {
+		val mode = Try(readInt)
+		mode.getOrElse(-1) match {
+			case 1 => 1
+			case 2 => 2
+			case 3 => 3
+			case _ => {
+				println("Error, you should enter 1, 2 or 3")
+        		chooseMode
+			}	
+		}
+	}
+
 }

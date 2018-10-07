@@ -9,6 +9,7 @@ import battleShip.Grid
 import scala.io.StdIn.readLine
 import scala.annotation.tailrec
 import scala.util.Try
+import scala.util.Random
 
 object BattleShip extends App {
 
@@ -18,42 +19,42 @@ object BattleShip extends App {
   println("********************************")
   println()
 
-  chooseMode
+  println("Choose the game mode (1: Human vs Human / 2: Human vs IA) :")
+  val res = Helpers.chooseMode
+  res match {
+    case 1 => {
+      print("\033[H\033[2J")
+      println("You choose the game Human Vs Human !")
+      println("************************************")
+      println()
+      println("Player 1 :")
+      println("Enter name of player :")
+      val name1 = readLine
+      val p1 = Player(name1,Nil,Nil,Nil,0,false)
+      println()
 
-  /**
-      * This function allows to choose the mode  
-      */
-  def chooseMode() : Unit = {
-    println("Choose the game mode (1: Human vs Human / 2: Human vs IA) :")
-    val gameMode = Try(readInt)
-    gameMode.getOrElse(-1) match {
-      case 1 => {
-        //println()
-        print("\033[H\033[2J")
-        println("You choose the game Human Vs Human !")
-        println("************************************")
-        println()
-        println("Player 1 :")
-        println("Enter name of player :")
-        val name1 = readLine
-        val p1 = Player(name1,Nil,Nil,Nil,0)
-        println()
-
-        println("Player 2 :")
-        println("Enter name of player :")
-        val name2 = readLine
-        val p2 = Player(name2,Nil,Nil,Nil,0)
-        game(p1,p2)
-      }
-      case 2 => {
-        print("\033[H\033[2J")
-        println("You choose the game Human Vs IA")
-      }
-      case _ => {
-        println("Error, you should enter 1 or 2")
-        chooseMode
-      } 
+      println("Player 2 :")
+      println("Enter name of player :")
+      val name2 = readLine
+      val p2 = Player(name2,Nil,Nil,Nil,0,false)
+      game(p1,p2)
     }
+    case 2 => {
+      print("\033[H\033[2J")
+      println("You choose the game Human Vs IA")
+      println("************************************")
+      println()
+      println("Player 1 :")
+      println("Enter name of player :")
+      val name1 = readLine
+      val p1 = Player(name1,Nil,Nil,Nil,0,false)
+      val p2 = Player("IALower",Nil,Nil,Nil,0,true)
+      game(p1,p2)
+    }
+    case 3 => {
+      print("\033[H\033[2J")
+      println("You choose the game IA Vs IA")
+    } 
   }
 
   /**
@@ -80,28 +81,46 @@ object BattleShip extends App {
   @tailrec
   def createFleet(p: Player, listShip : List[Ship]) : Player = {
     if (listShip.isEmpty) {
-        println("Initialization Player finish !")
+        println("Initialization Player, "+p.name+", finish !")
         println("Press any key to continue")
         readLine
         return p
     } else {
-      println("Create "+listShip.head.name+" (Player : "+p.name+")")
-      println()
-      val coordinate = Helpers.enterCoordinate
-      val direction = Helpers.enterDirection
-      val ship = p.createShip(listShip.head.name,listShip.head.size,coordinate,direction)
-      ship match {
-        case Some(s) => {
-          val newP = p.addShip(ship.get)
+      p.isIA match {
+        case false => {
+          println("Create "+listShip.head.name+" (Player : "+p.name+")")
           println()
-          println(listShip.head.name+" create !")
-          println("----------")
-          createFleet(newP,listShip.tail) 
+          val coordinate = Helpers.enterCoordinate
+          val direction = Helpers.enterDirection
+          val ship = p.createShip(listShip.head.name,listShip.head.size,coordinate,direction)
+          ship match {
+            case Some(s) => {
+              val newP = p.addShip(ship.get)
+              println()
+              println(listShip.head.name+" create !")
+              println("----------")
+              createFleet(newP,listShip.tail) 
+            }
+            case None => {
+              println("Bad Ship ! No create !")
+              println("----------")
+              createFleet(p,listShip)
+            }
+          }
         }
-        case None => {
-          println("Bad Ship ! No create !")
-          println("----------")
-          createFleet(p,listShip)
+        case true => {
+          val coordinate = IALower.chooseCoordinate
+          val direction = IALower.chooseDirection
+          val ship = p.createShip(listShip.head.name,listShip.head.size,coordinate,direction)
+          ship match {
+            case Some(s) => {
+              val newP = p.addShip(ship.get)
+              createFleet(newP,listShip.tail) 
+            }
+            case None => {
+              createFleet(p,listShip)
+            }
+          }
         }
       }
     }
@@ -147,12 +166,15 @@ object BattleShip extends App {
     if (!p1.isDead) {
       if (!p2.isDead) {
         println("It's "+p1.name+ "'s turn :")
-        println("Grid with your ships and shot's opponent (O --> Good / X --> Bad) :")
-        Grid.printGrilleMyShips(1,1,p1,p2)
-        println()
-        println("Grid with your shoots (O --> Good / X --> Bad) :")
-        Grid.printGrilleMyShoots(1,1,p1)
-        val coordinate = Helpers.enterCoordinate
+        if (p1.isIA == false) {
+          println("Grid with your ships and shot's opponent (O --> Good / X --> Bad) :")
+          Grid.printGrilleMyShips(1,1,p1,p2)
+          println()
+          println("Grid with your shoots (O --> Good / X --> Bad) :")
+          Grid.printGrilleMyShoots(1,1,p1)
+        }
+        //val coordinate = Helpers.enterCoordinate
+        val coordinate = coord(p1)
         val res = p2.isContainedInOneShip(coordinate)
         res match {
           case None => {
@@ -200,6 +222,14 @@ object BattleShip extends App {
         println(newP2.name+" win "+newP2.score+" games !")
         println(p1.name+" win "+p1.score+" games !")
         return newP2
+    }
+  }
+
+  def coord(p :Player) : Coordinate = {
+    if (p.isIA == true) {
+      IALower.chooseCoordinate
+    } else {
+      Helpers.enterCoordinate
     }
   }
 
