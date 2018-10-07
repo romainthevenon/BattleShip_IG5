@@ -7,14 +7,14 @@ import scala.annotation.tailrec
 /**
   * This class represent a player
  *
-  * @param _name The name of the ship
+  * @param _name The name of the player
   * @param _listShip The list of ships 
-  * @param _listShotGood The list of shots good of the player (shots that touch or sink a ship)
-  * @param _listShotBad The list of shots bad of the player (shots that no touch or sink a ship)
+  * @param _listShotGood The list of good shots of the player (shots that touch or sink a ship)
+  * @param _listShotBad The list of bad shots of the player (shots that not touch or not sink a ship)
   * @param _score The score of the player
-  * @param _isIA true if the player is IA, otherwise it equals to false
+  * @param _isAI true if the player is AI, otherwise it equals to false
   */
-case class Player(_name : String, _listShip : List[Ship], _listShotGood : List[Coordinate], _listShotBad : List[Coordinate], _score : Int, _isIA : Boolean) {
+case class Player(_name : String, _listShip : List[Ship], _listShotGood : List[Coordinate], _listShotBad : List[Coordinate], _score : Int, _isAI : Boolean) {
 
 	//Getter
 	def name: String = _name
@@ -22,7 +22,7 @@ case class Player(_name : String, _listShip : List[Ship], _listShotGood : List[C
 	def listShotGood: List[Coordinate] = _listShotGood
 	def listShotBad: List[Coordinate] = _listShotBad
 	def score: Int = _score
-	def isIA: Boolean = _isIA
+	def isAI: Boolean = _isAI
 
 	/**
       * This function returns the list of coordinate from the first coordinate, the size and the direction (allow to recover all coordinates of a ship)

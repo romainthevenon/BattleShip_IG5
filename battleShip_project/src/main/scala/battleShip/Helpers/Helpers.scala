@@ -55,6 +55,10 @@ object Helpers {
 	    }
 	}
 
+	/**
+      * This function returns the int enter by the user, i.e the mode of game (1,2 or 3)
+      * @return Int : the mode game choose by the user 
+      */
 	def chooseMode() : Int = {
 		val mode = Try(readInt)
 		mode.getOrElse(-1) match {
@@ -68,36 +72,51 @@ object Helpers {
 		}
 	}
 
+	/**
+      * This function returns the coordinate to shot during the round (allow to check if the player is a AI or a Human, if it is a AI use the function AI, otherwise use the input console)
+      * @param p The player 
+      * @return Coordinate : the coordinate to shot during the round
+      */
 	def coordinateToShot(p :Player) : Coordinate = {
-	    if (p.isIA == true) {
+	    if (p.isAI == true) {
 	      p.name match {
-	        case "IALower" => IALower.chooseCoordinate
-	        case "IAMedium" => IAMedium.chooseCoordinateToShot(p)
-	        case "IAHard" => IAHard.chooseCoordinateToShot(p)
+	        case "AILower" => AILower.chooseCoordinate
+	        case "AIMedium" => AIMedium.chooseCoordinateToShot(p)
+	        case "AIHard" => AIHard.chooseCoordinateToShot(p)
 	      }
 	    } else {
 	      enterCoordinate
 	    }
   	}
 
+	/**
+      * This function returns the coordinate to place one ship (allow to check if the player is a AI or a Human, if it is a AI use the function AI, otherwise use the input console)
+      * @param p The player 
+      * @return Coordinate : the coordinate to place the ship
+      */
   	def coordinateToPlaceShip(p: Player) : Coordinate = {
-    	if (p.isIA == true) {
+    	if (p.isAI == true) {
       		p.name match {
-        		case "IALower" => IALower.chooseCoordinate
-        		case "IAMedium" => IAMedium.chooseCoordinateToPlaceShip
-        		case "IAHard" => IAHard.chooseCoordinateToPlaceShip
+        		case "AILower" => AILower.chooseCoordinate
+        		case "AIMedium" => AIMedium.chooseCoordinateToPlaceShip
+        		case "AIHard" => AIHard.chooseCoordinateToPlaceShip
       		}
     	} else {
       		enterCoordinate
     	}
   	}
 
+	/**
+      * This function returns the direction to place one ship (allow to check if the player is a AI or a Human, if it is a AI use the function AI, otherwise use the input console)
+      * @param p The player 
+      * @return String : the direction to place the ship
+      */
   	def directionToPlaceShip(p : Player) : String = {
-	    if (p.isIA == true) {
+	    if (p.isAI == true) {
 	      p.name match {
-	        case "IALower" => IALower.chooseDirection
-	        case "IAMedium" => IAMedium.chooseDirection
-	        case "IAHard" => IAHard.chooseDirection
+	        case "AILower" => AILower.chooseDirection
+	        case "AIMedium" => AIMedium.chooseDirection
+	        case "AIHard" => AIHard.chooseDirection
 	      }
 	    } else {
 	      enterDirection

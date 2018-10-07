@@ -8,3 +8,4 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- Test : addShot (check if the shot is added in the list)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- Test : addShip (check if the ship is added in the list)[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- Test : isContainedInOneShip (check if the coordinate is contained in one ship of the player)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Test : addScore (check if the score is increased)[0m[0m

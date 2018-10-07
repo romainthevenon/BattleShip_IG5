@@ -3,8 +3,18 @@ package battleShip
 import battleShip._
 import scala.util.Random
 
-object IAHard {
+object AIHard {
 
+/*
+For this AI :
+- place Ship --> Random
+- Shot --> check if the list of good shots is not empty, if not empty, take the first shot in the list (it is the last shot good) and play a coordinate around this shot, otherwise play a random 
+*/
+
+	/**
+      * This function returns the coordinate to place a ship (random)
+      * @return Coordinate 
+      */
 	def chooseCoordinateToPlaceShip() : Coordinate = {
 		val randX = (new Random).nextInt(10)
 		val x = randX + 1
@@ -13,6 +23,10 @@ object IAHard {
 		Coordinate(x,y)
 	}
 
+	/**
+      * This function returns the direction (random)
+      * @return String : The direction 
+      */
 	def chooseDirection() : String = {
 		val rand = (new Random).nextInt(1)
 		rand match {
@@ -21,6 +35,10 @@ object IAHard {
 		}
 	}
 
+	/**
+      * This function returns the coordinate to shot (check if the list of good shots is not empty, if not empty, take the first shot in the list (it is the last shot good) and play a coordinate around this shot, otherwise play a random)
+      * @return Coordinate 
+      */
 	def chooseCoordinateToShot(p: Player) : Coordinate = {
 		if (p.listShotGood.isEmpty) {
 			val randX = (new Random).nextInt(10)

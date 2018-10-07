@@ -69,7 +69,7 @@ class PlayerSpec extends FunSuite {
   	}
 
   	test("Test : addShot (check if the shot is added in the list)") {
-  		val p1 = Player("test",Nil,Nil,Nil,0)
+  		val p1 = Player("test",Nil,Nil,Nil,0,false)
   		val c1 = Coordinate(1,1)
   		val c2 = Coordinate(1,2)
   		val p2 = p1.addShot(c1,true)
