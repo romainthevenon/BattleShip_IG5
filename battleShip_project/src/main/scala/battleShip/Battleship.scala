@@ -184,7 +184,7 @@ object BattleShip extends App {
               val newP2 = p2.removeShip(ship)
               if (p1.isAI == false) {
                 println()
-                println(newShip.name+"(size = "+newShip.size+") sinked !!!")
+                println("You sank my "+newShip.name+" !!!")
                 println("Press any key to continue")
                 readLine
               }
@@ -194,7 +194,7 @@ object BattleShip extends App {
               val newP2 = indexP2.addShip(newShip)
               if (p1.isAI == false) {
                 println()
-                println(newShip.name+"(size = "+newShip.size+") touched !!!")
+                println("It's a hit !!!")
                 println("Press any key to continue")
                 readLine
               }

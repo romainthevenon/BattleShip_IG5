@@ -31,8 +31,6 @@ run
 run
 ~compile
 run
-~compile
-run
 exit
 ~compile
 run
@@ -486,6 +484,8 @@ sbt compile
 compile
 sbt install 
 reload
+compile
+run
 compile
 run
 compile

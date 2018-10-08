@@ -40,9 +40,9 @@ object Grid {
       return printGrilleMyShoots(0,yCurrent+1,p)
     } else {
       if (p.isShotGood(Coordinate(xCurrent,yCurrent))) {
-        print(Console.GREEN+"O "+Console.RESET)
+        print(Console.RED+"O "+Console.RESET)
       } else if (p.isShotBad(Coordinate(xCurrent,yCurrent))) {
-        print(Console.RED+"X "+Console.RESET)
+        print(Console.WHITE+"X "+Console.RESET)
       } else {
         print("- ")
       }
@@ -93,9 +93,9 @@ object Grid {
         }
         case None => {
           if(p2.isShotGood(Coordinate(xCurrent,yCurrent))) {
-            print(Console.GREEN+"O "+Console.RESET)
+            print(Console.RED+"O "+Console.RESET)
           } else if (p2.isShotBad(Coordinate(xCurrent,yCurrent))) {
-            print(Console.RED+"X "+Console.RESET)
+            print(Console.WHITE+"X "+Console.RESET)
           } else {
             print("- ")
           }
