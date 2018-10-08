@@ -36,17 +36,17 @@ For this AI :
 	}
 
 	/**
-      * This function returns the coordinate to shot (random and check if the coordinate has already been played)
+      * This function returns the coordinate to shoot (random and check if the coordinate has already been played)
       * @return Coordinate 
       */
-	def chooseCoordinateToShot(p: Player) : Coordinate = {
+	def chooseCoordinateToShoot(p: Player) : Coordinate = {
 		val randX = (new Random).nextInt(10)
 		val x = randX + 1
 		val randY = (new Random).nextInt(10)
 		val y = randY + 1
 		val c = Coordinate(x,y)
 		if(p.isShotGood(c) | p.isShotBad(c)) {
-			chooseCoordinateToShot(p)
+			chooseCoordinateToShoot(p)
 		} else {
 			return c
 		}

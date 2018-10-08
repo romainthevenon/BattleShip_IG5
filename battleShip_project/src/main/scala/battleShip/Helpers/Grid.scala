@@ -6,27 +6,27 @@ import scala.annotation.tailrec
 object Grid {
 
   /**
-      * This function allows to print grid of the shoots to the player 
+      * This function allows to print grid of the shots to the player 
       * @param xCurrent
       * @param yCurrent
       * @param p The player
       * @return Boolean : true when the grid is print
       */
   @tailrec
-  def printGrilleMyShoots(xCurrent : Int, yCurrent: Int, p: Player) : Boolean = {
+  def printGrilleMyShots(xCurrent : Int, yCurrent: Int, p: Player) : Boolean = {
     val letters = List("A","B","C","D","E","F","G","H","I","J")
     if(yCurrent>10) {
       return true
     } else if (yCurrent == 0) {
       if (xCurrent > 10) {
         print("\n")
-        return printGrilleMyShoots(0,yCurrent+1,p)
+        return printGrilleMyShots(0,yCurrent+1,p)
       } else if (xCurrent > 0) {
         print(letters(xCurrent-1)+" ")
-        return printGrilleMyShoots(xCurrent+1,yCurrent,p)
+        return printGrilleMyShots(xCurrent+1,yCurrent,p)
       } else {
         print("      ")
-        return printGrilleMyShoots(xCurrent+1,yCurrent,p)
+        return printGrilleMyShots(xCurrent+1,yCurrent,p)
       }
     } else if (xCurrent == 0) {
       if (yCurrent == 10) {
@@ -34,10 +34,10 @@ object Grid {
       } else {
         print(yCurrent+"  || ")
       }
-      return printGrilleMyShoots(xCurrent+1,yCurrent,p)
+      return printGrilleMyShots(xCurrent+1,yCurrent,p)
     } else if (xCurrent>10) {
       print("\n")
-      return printGrilleMyShoots(0,yCurrent+1,p)
+      return printGrilleMyShots(0,yCurrent+1,p)
     } else {
       if (p.isShotGood(Coordinate(xCurrent,yCurrent))) {
         print(Console.RED+"O "+Console.RESET)
@@ -46,12 +46,12 @@ object Grid {
       } else {
         print("- ")
       }
-      return printGrilleMyShoots(xCurrent+1,yCurrent,p)
+      return printGrilleMyShots(xCurrent+1,yCurrent,p)
     }
   }
 
   /**
-      * This function allows to print grid of the ships to the player and the shoots to the other player
+      * This function allows to print grid of the ships to the player and the shots to the other player
       * @param xCurrent
       * @param yCurrent
       * @param p1 The player

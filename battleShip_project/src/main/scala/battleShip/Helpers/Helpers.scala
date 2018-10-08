@@ -73,16 +73,16 @@ object Helpers {
 	}
 
 	/**
-      * This function returns the coordinate to shot during the round (allow to check if the player is a AI or a Human, if it is a AI use the function AI, otherwise use the input console)
+      * This function returns the coordinate to shoot during the round (allow to check if the player is a AI or a Human, if it is a AI use the function AI, otherwise use the input console)
       * @param p The player 
-      * @return Coordinate : the coordinate to shot during the round
+      * @return Coordinate : the coordinate to shoot during the round
       */
 	def coordinateToShot(p :Player) : Coordinate = {
 	    if (p.isAI == true) {
 	      p.name match {
 	        case "AILower" => AILower.chooseCoordinate
-	        case "AIMedium" => AIMedium.chooseCoordinateToShot(p)
-	        case "AIHard" => AIHard.chooseCoordinateToShot(p)
+	        case "AIMedium" => AIMedium.chooseCoordinateToShoot(p)
+	        case "AIHard" => AIHard.chooseCoordinateToShoot(p)
 	      }
 	    } else {
 	      enterCoordinate

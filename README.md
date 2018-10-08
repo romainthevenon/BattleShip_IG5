@@ -16,6 +16,6 @@ This project use different AI (low, medium and hard). In order to check if hard 
   
 |   | Score AI 1 | Score AI 2 |
 | ------------- | ------------- | ------------ |
-| AI Lower / AI Medium  | 3071  | 46929 |
-| AI Lower / AI Hard  | 1087  | 48913 |
-| AI Medium / AI Hard  | 7397  | 42603 |
+| AI Lower / AI Medium  | 7  | 49993 |
+| AI Lower / AI Hard  | 3  | 49997  |
+| AI Medium / AI Hard  | 7031  | 42969  |

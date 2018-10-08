@@ -36,10 +36,10 @@ For this AI :
 	}
 
 	/**
-      * This function returns the coordinate to shot (check if the list of good shots is not empty, if not empty, take the first shot in the list (it is the last shot good) and play a coordinate around this shot, otherwise play a random)
+      * This function returns the coordinate to shoot (check if the list of good shots is not empty, if not empty, take the first shot in the list (it is the last shot good) and play a coordinate around this shot, otherwise play a random --> random valid if (x and y are even) or (x and y are uneven))
       * @return Coordinate 
       */
-	def chooseCoordinateToShot(p: Player) : Coordinate = {
+	def chooseCoordinateToShoot(p: Player) : Coordinate = {
 		if (p.listShotGood.isEmpty) {
 			val randX = (new Random).nextInt(10)
 			val x = randX + 1
@@ -47,9 +47,13 @@ For this AI :
 			val y = randY + 1
 			val c=  Coordinate(x,y)
 			if(p.isShotGood(c) | p.isShotBad(c)) {
-				chooseCoordinateToShot(p)
-			} else {
+				chooseCoordinateToShoot(p)
+			} else if((x % 2 == 0) && (y % 2 ==0)) {
 				return c
+			} else if((x % 2 != 0) && (y % 2 !=0)) {
+				return c
+			} else {
+				chooseCoordinateToShoot(p)
 			}
 		} else {
 			val oldShot = p.listShotGood.head
@@ -68,7 +72,7 @@ For this AI :
 				val y = randY + 1
 				val c = Coordinate(x,y)
 				if(p.isShotGood(c) | p.isShotBad(c)) {
-					chooseCoordinateToShot(p)
+					chooseCoordinateToShoot(p)
 				} else {
 					return c
 				}

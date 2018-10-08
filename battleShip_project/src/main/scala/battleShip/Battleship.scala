@@ -10,6 +10,7 @@ import com.github.tototoshi.csv.CSVWriter
 
 object BattleShip extends App {
 
+  //file to write score in csv (AI vs AI)
   val fileName: String = "ai_proof.csv"
 
   Helpers.clear
@@ -70,9 +71,9 @@ object BattleShip extends App {
       val p1 = Player("AILower",Nil,Nil,Nil,0,true)
       val p2 = Player("AIMedium",Nil,Nil,Nil,0,true)
       val p3 = Player("AIHard",Nil,Nil,Nil,0,true)
-      val res1 = gameAIVsAI(p1,p2,1,100)
-      val res2 = gameAIVsAI(p1,p3,1,100)
-      val res3 = gameAIVsAI(p2,p3,1,100)
+      val res1 = gameAIVsAI(p1,p2,1,50000)
+      val res2 = gameAIVsAI(p1,p3,1,50000)
+      val res3 = gameAIVsAI(p2,p3,1,50000)
       val file = new File(fileName)
       val writer = CSVWriter.open(file)
       writer.writeRow(List("AI Name", "score", "AI Name 2", "score 2"))
@@ -160,7 +161,7 @@ object BattleShip extends App {
           Grid.printGrilleMyShipsAndShotsOpposing(0,0,p1,p2)
           println()
           println("Grid with your shoots (O --> Good / X --> Bad) :")
-          Grid.printGrilleMyShoots(0,0,p1)
+          Grid.printGrilleMyShots(0,0,p1)
         }
         //val coordinate = Helpers.enterCoordinate
         val coordinate = Helpers.coordinateToShot(p1)
@@ -218,9 +219,7 @@ object BattleShip extends App {
       * @return Player The new player with all ships initialized
       */
   def initialisePlayer(p : Player) : Player = {
-    //val listShip = List(Ship("destroyer",2,Nil),Ship("submarine",3,Nil),Ship("cruiser",3,Nil),Ship("battleShip",4,Nil),Ship("carrier",5,Nil))
-    val listShip = List(Ship("destroyer",2,Nil),Ship("submarine",3,Nil))
-    //val listShip = List(Ship("destroyer",2,Nil))
+    val listShip = List(Ship("destroyer",2,Nil),Ship("submarine",3,Nil),Ship("cruiser",3,Nil),Ship("battleShip",4,Nil),Ship("carrier",5,Nil))
     if (p.isAI == false) {
       Helpers.clear
       println("******************************")
