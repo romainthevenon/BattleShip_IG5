@@ -1,4 +1,7 @@
-[0m[[0m[31merror[0m] [0m[0mD:\romain\Documents\Github\BattleShip_IG5\battleShip_project\src\main\scala\battleShip\Battleship.scala:3:1: expected class or object definition[0m
-[0m[[0m[31merror[0m] [0m[0mcd import battleShip._[0m
+[0m[[0m[31merror[0m] [0m[0mD:\romain\Documents\Github\BattleShip_IG5\battleShip_project\src\main\scala\battleShip\Battleship.scala:122:81: '=' expected but '(' found.[0m
+[0m[[0m[31merror[0m] [0m[0m  def gameAIVsAI(p1 : Player, p2 : Player, nbRound : Int, nbGlobal : Int) : List(Player) = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\romain\Documents\Github\BattleShip_IG5\battleShip_project\src\main\scala\battleShip\Battleship.scala:151:1: illegal start of simple expression[0m
+[0m[[0m[31merror[0m] [0m[0m  @tailrec[0m
 [0m[[0m[31merror[0m] [0m[0m^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

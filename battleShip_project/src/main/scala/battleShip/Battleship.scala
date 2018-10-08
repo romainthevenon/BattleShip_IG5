@@ -2,12 +2,15 @@ package battleShip
 
 import battleShip._
 
+import java.io.File
+
 import scala.io.StdIn.readLine
 import scala.annotation.tailrec
-import scala.util.Try
-import scala.util.Random
+import com.github.tototoshi.csv.CSVWriter
 
 object BattleShip extends App {
+
+  val fileName: String = "ai_proof.csv"
 
   Helpers.clear
   println("********************************")
@@ -67,9 +70,16 @@ object BattleShip extends App {
       val p1 = Player("AILower",Nil,Nil,Nil,0,true)
       val p2 = Player("AIMedium",Nil,Nil,Nil,0,true)
       val p3 = Player("AIHard",Nil,Nil,Nil,0,true)
-      gameAIVsAI(p1,p2,1,100)
-      gameAIVsAI(p1,p3,1,100)
-      gameAIVsAI(p2,p3,1,100)
+      val res1 = gameAIVsAI(p1,p2,1,100)
+      val res2 = gameAIVsAI(p1,p3,1,100)
+      val res3 = gameAIVsAI(p2,p3,1,100)
+      val file = new File(fileName)
+      val writer = CSVWriter.open(file)
+      writer.writeRow(List("AI Name", "score", "AI Name 2", "score 2"))
+      writer.writeRow(List(res1(0).name,res1(0).score,res1(1).name,res1(1).score))
+      writer.writeRow(List(res2(0).name,res2(0).score,res2(1).name,res2(1).score))
+      writer.writeRow(List(res3(0).name,res3(0).score,res3(1).name,res3(1).score))
+      writer.close()
     } 
   }
 
@@ -103,13 +113,14 @@ object BattleShip extends App {
   }
 
     /**
-      * This function allows to start the game AI vs AI during 100 games
+      * This function allows to start the game AI vs AI during nbGlobal games and return the list of players 
       * @param p The first player (it is the first player to play)
       * @param p2 The second player
       * @param nbRound Number of current round
+      * @return list of player after nbGlobal games
       */
   @tailrec
-  def gameAIVsAI(p1 : Player, p2 : Player, nbRound : Int, nbGlobal : Int) : Unit = {
+  def gameAIVsAI(p1 : Player, p2 : Player, nbRound : Int, nbGlobal : Int) : List[Player] = {
     val newP1 = initialisePlayer(p1)
     val newP2 = initialisePlayer(p2)
     val listP = round(newP1,newP2)
@@ -120,6 +131,7 @@ object BattleShip extends App {
         println(listP(0).name+" win "+listP(0).score+" games !")
         println(listP(1).name+" win "+listP(1).score+" games !")
         println()
+        return listP
       }
       case false => {
           val p1Reset = listP(0).reset()
