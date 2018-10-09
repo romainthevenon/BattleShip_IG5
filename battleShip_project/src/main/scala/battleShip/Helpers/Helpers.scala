@@ -2,6 +2,7 @@ package battleShip
 
 import battleShip._
 import scala.util.Try
+import scala.util.Random
 
 object Helpers {
 
@@ -75,14 +76,15 @@ object Helpers {
 	/**
       * This function returns the coordinate to shoot during the round (allow to check if the player is a AI or a Human, if it is a AI use the function AI, otherwise use the input console)
       * @param p The player 
+      * @param random 
       * @return Coordinate : the coordinate to shoot during the round
       */
-	def coordinateToShot(p :Player) : Coordinate = {
+	def coordinateToShot(p :Player, random : Random) : Coordinate = {
 	    if (p.isAI == true) {
 	      p.name match {
-	        case "AILower" => AILower.chooseCoordinate
-	        case "AIMedium" => AIMedium.chooseCoordinateToShoot(p)
-	        case "AIHard" => AIHard.chooseCoordinateToShoot(p)
+	        case "AILower" => AILower.chooseCoordinate(random)
+	        case "AIMedium" => AIMedium.chooseCoordinateToShoot(p, random)
+	        case "AIHard" => AIHard.chooseCoordinateToShoot(p, random)
 	      }
 	    } else {
 	      enterCoordinate
@@ -92,14 +94,15 @@ object Helpers {
 	/**
       * This function returns the coordinate to place one ship (allow to check if the player is a AI or a Human, if it is a AI use the function AI, otherwise use the input console)
       * @param p The player 
+      * @param random
       * @return Coordinate : the coordinate to place the ship
       */
-  	def coordinateToPlaceShip(p: Player) : Coordinate = {
+  	def coordinateToPlaceShip(p: Player, random : Random) : Coordinate = {
     	if (p.isAI == true) {
       		p.name match {
-        		case "AILower" => AILower.chooseCoordinate
-        		case "AIMedium" => AIMedium.chooseCoordinateToPlaceShip
-        		case "AIHard" => AIHard.chooseCoordinateToPlaceShip
+        		case "AILower" => AILower.chooseCoordinate(random)
+        		case "AIMedium" => AIMedium.chooseCoordinateToPlaceShip(random)
+        		case "AIHard" => AIHard.chooseCoordinateToPlaceShip(random)
       		}
     	} else {
       		enterCoordinate
@@ -109,14 +112,15 @@ object Helpers {
 	/**
       * This function returns the direction to place one ship (allow to check if the player is a AI or a Human, if it is a AI use the function AI, otherwise use the input console)
       * @param p The player 
+      * @param random
       * @return String : the direction to place the ship
       */
-  	def directionToPlaceShip(p : Player) : String = {
+  	def directionToPlaceShip(p : Player, random : Random) : String = {
 	    if (p.isAI == true) {
 	      p.name match {
-	        case "AILower" => AILower.chooseDirection
-	        case "AIMedium" => AIMedium.chooseDirection
-	        case "AIHard" => AIHard.chooseDirection
+	        case "AILower" => AILower.chooseDirection(random)
+	        case "AIMedium" => AIMedium.chooseDirection(random)
+	        case "AIHard" => AIHard.chooseDirection(random)
 	      }
 	    } else {
 	      enterDirection

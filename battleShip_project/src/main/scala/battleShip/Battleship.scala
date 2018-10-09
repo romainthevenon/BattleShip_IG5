@@ -7,11 +7,15 @@ import java.io.File
 import scala.io.StdIn.readLine
 import scala.annotation.tailrec
 import com.github.tototoshi.csv.CSVWriter
+import scala.util.Random
 
 object BattleShip extends App {
 
   //file to write score in csv (AI vs AI)
   val fileName: String = "ai_proof.csv"
+
+  //create new random 
+  val random = new Random
 
   Helpers.clear
   println("********************************")
@@ -158,13 +162,13 @@ object BattleShip extends App {
           Helpers.clear
           println("It's "+p1.name+ "'s turn :")
           println("Grid with your ships and shot's opponent (O --> Good / X --> Bad) :")
-          Grid.printGrilleMyShipsAndShotsOpposing(0,0,p1,p2)
+          Grid.printGridMyShipsAndShotsOpposing(0,0,p1,p2)
           println()
           println("Grid with your shoots (O --> Good / X --> Bad) :")
-          Grid.printGrilleMyShots(0,0,p1)
+          Grid.printGridMyShots(0,0,p1)
         }
         //val coordinate = Helpers.enterCoordinate
-        val coordinate = Helpers.coordinateToShot(p1)
+        val coordinate = Helpers.coordinateToShot(p1, random)
         val res = p2.isContainedInOneShip(coordinate)
         res match {
           case None => {
@@ -246,12 +250,12 @@ object BattleShip extends App {
       return p
     } else {
       if(p.isAI == false) {
-        Grid.printGrilleMyShips(0,0,p)
+        Grid.printGridMyShips(0,0,p)
         println("Create "+listShip.head.name+"(size = "+listShip.head.size+") (Player : "+p.name+")")
         println()
       }
-      val coordinate = Helpers.coordinateToPlaceShip(p)
-      val direction = Helpers.directionToPlaceShip(p)
+      val coordinate = Helpers.coordinateToPlaceShip(p, random)
+      val direction = Helpers.directionToPlaceShip(p, random)
       val ship = p.createShip(listShip.head.name,listShip.head.size,coordinate,direction)
       ship match {
         case Some(s) => {

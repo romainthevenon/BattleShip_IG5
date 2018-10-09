@@ -13,20 +13,20 @@ object Grid {
       * @return Boolean : true when the grid is print
       */
   @tailrec
-  def printGrilleMyShots(xCurrent : Int, yCurrent: Int, p: Player) : Boolean = {
+  def printGridMyShots(xCurrent : Int, yCurrent: Int, p: Player) : Boolean = {
     val letters = List("A","B","C","D","E","F","G","H","I","J")
     if(yCurrent>10) {
       return true
     } else if (yCurrent == 0) {
       if (xCurrent > 10) {
         print("\n")
-        return printGrilleMyShots(0,yCurrent+1,p)
+        return printGridMyShots(0,yCurrent+1,p)
       } else if (xCurrent > 0) {
         print(letters(xCurrent-1)+" ")
-        return printGrilleMyShots(xCurrent+1,yCurrent,p)
+        return printGridMyShots(xCurrent+1,yCurrent,p)
       } else {
         print("      ")
-        return printGrilleMyShots(xCurrent+1,yCurrent,p)
+        return printGridMyShots(xCurrent+1,yCurrent,p)
       }
     } else if (xCurrent == 0) {
       if (yCurrent == 10) {
@@ -34,10 +34,10 @@ object Grid {
       } else {
         print(yCurrent+"  || ")
       }
-      return printGrilleMyShots(xCurrent+1,yCurrent,p)
+      return printGridMyShots(xCurrent+1,yCurrent,p)
     } else if (xCurrent>10) {
       print("\n")
-      return printGrilleMyShots(0,yCurrent+1,p)
+      return printGridMyShots(0,yCurrent+1,p)
     } else {
       if (p.isShotGood(Coordinate(xCurrent,yCurrent))) {
         print(Console.RED+"O "+Console.RESET)
@@ -46,7 +46,7 @@ object Grid {
       } else {
         print("- ")
       }
-      return printGrilleMyShots(xCurrent+1,yCurrent,p)
+      return printGridMyShots(xCurrent+1,yCurrent,p)
     }
   }
 
@@ -59,20 +59,20 @@ object Grid {
       * @return Boolean : true when the grid is print
       */
   @tailrec
-  def printGrilleMyShipsAndShotsOpposing(xCurrent : Int, yCurrent: Int, p1: Player, p2 : Player) : Boolean = {
+  def printGridMyShipsAndShotsOpposing(xCurrent : Int, yCurrent: Int, p1: Player, p2 : Player) : Boolean = {
     val letters = List("A","B","C","D","E","F","G","H","I","J")
     if(yCurrent>10) {
       return true
     } else if (yCurrent == 0) {
       if (xCurrent > 10) {
         print("\n")
-        return printGrilleMyShipsAndShotsOpposing(0,yCurrent+1,p1,p2)
+        return printGridMyShipsAndShotsOpposing(0,yCurrent+1,p1,p2)
       } else if (xCurrent > 0) {
         print(letters(xCurrent-1)+" ")
-        return printGrilleMyShipsAndShotsOpposing(xCurrent+1,yCurrent,p1,p2)
+        return printGridMyShipsAndShotsOpposing(xCurrent+1,yCurrent,p1,p2)
       } else {
         print("      ")
-        return printGrilleMyShipsAndShotsOpposing(xCurrent+1,yCurrent,p1,p2)
+        return printGridMyShipsAndShotsOpposing(xCurrent+1,yCurrent,p1,p2)
       }
     } else if (xCurrent == 0) {
       if (yCurrent == 10) {
@@ -80,16 +80,16 @@ object Grid {
       } else {
         print(yCurrent+"  || ")
       }
-      return printGrilleMyShipsAndShotsOpposing(xCurrent+1,yCurrent,p1,p2)
+      return printGridMyShipsAndShotsOpposing(xCurrent+1,yCurrent,p1,p2)
     } else if (xCurrent>10) {
       print("\n")
-      return printGrilleMyShipsAndShotsOpposing(0,yCurrent+1,p1,p2)
+      return printGridMyShipsAndShotsOpposing(0,yCurrent+1,p1,p2)
     } else {
       val res = p1.isContainedInOneShip(Coordinate(xCurrent,yCurrent))
       res match {
         case Some(s) => {
           print(Console.BLUE+res.get.size+" "+Console.RESET)
-          return printGrilleMyShipsAndShotsOpposing(xCurrent+1,yCurrent,p1,p2)
+          return printGridMyShipsAndShotsOpposing(xCurrent+1,yCurrent,p1,p2)
         }
         case None => {
           if(p2.isShotGood(Coordinate(xCurrent,yCurrent))) {
@@ -99,7 +99,7 @@ object Grid {
           } else {
             print("- ")
           }
-          return printGrilleMyShipsAndShotsOpposing(xCurrent+1,yCurrent,p1,p2)
+          return printGridMyShipsAndShotsOpposing(xCurrent+1,yCurrent,p1,p2)
         }
       }
     }
@@ -113,20 +113,20 @@ object Grid {
       * @return Boolean : true when the grid is print
       */
   @tailrec
-  def printGrilleMyShips(xCurrent : Int, yCurrent: Int, p: Player) : Boolean = {
+  def printGridMyShips(xCurrent : Int, yCurrent: Int, p: Player) : Boolean = {
     val letters = List("A","B","C","D","E","F","G","H","I","J")
     if(yCurrent>10) {
       return true
     } else if (yCurrent == 0) {
       if (xCurrent > 10) {
         print("\n")
-        return printGrilleMyShips(0,yCurrent+1,p)
+        return printGridMyShips(0,yCurrent+1,p)
       } else if (xCurrent > 0) {
         print(letters(xCurrent-1)+" ")
-        return printGrilleMyShips(xCurrent+1,yCurrent,p)
+        return printGridMyShips(xCurrent+1,yCurrent,p)
       } else {
         print("      ")
-        return printGrilleMyShips(xCurrent+1,yCurrent,p)
+        return printGridMyShips(xCurrent+1,yCurrent,p)
       }
     } else if (xCurrent == 0) {
       if (yCurrent == 10) {
@@ -134,20 +134,20 @@ object Grid {
       } else {
         print(yCurrent+"  || ")
       }
-      return printGrilleMyShips(xCurrent+1,yCurrent,p)
+      return printGridMyShips(xCurrent+1,yCurrent,p)
     } else if (xCurrent>10) {
       print("\n")
-      return printGrilleMyShips(0,yCurrent+1,p)
+      return printGridMyShips(0,yCurrent+1,p)
     } else {
       val res = p.isContainedInOneShip(Coordinate(xCurrent,yCurrent))
       res match {
         case Some(s) => {
           print(Console.BLUE+res.get.size+" "+Console.RESET)
-          return printGrilleMyShips(xCurrent+1,yCurrent,p)
+          return printGridMyShips(xCurrent+1,yCurrent,p)
         }
         case None => {
           print("- ")
-          return printGrilleMyShips(xCurrent+1,yCurrent,p)
+          return printGridMyShips(xCurrent+1,yCurrent,p)
         }
       }
     }
