@@ -1,4 +1,0 @@
-[0m[[0m[31merror[0m] [0m[0mD:\romain\Documents\Github\BattleShip_IG5\battleShip_project\src\test\scala\PlayerSpec.scala:72:20: not enough arguments for method apply: (_name: String, _listShip: List[battleShip.Ship], _listShotGood: List[battleShip.Coordinate], _listShotBad: List[battleShip.Coordinate], _score: Int, _isIA: Boolean)battleShip.Player in object Player.[0m
-[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter _isIA.[0m
-[0m[[0m[31merror[0m] [0m[0m  		val p1 = Player("test",Nil,Nil,Nil,0)[0m
-[0m[[0m[31merror[0m] [0m[0m  		               ^[0m
